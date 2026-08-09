@@ -26,19 +26,19 @@
           <a href="#" class="p-header__nav-link p-header__nav-link--active">ホーム</a>
         </li>
         <li class="p-header__nav-item">
-          <a href="./news.html" class="p-header__nav-link">お知らせ</a>
+          <a href="./news/" class="p-header__nav-link">お知らせ</a>
         </li>
         <li class="p-header__nav-item">
-          <a href="./works.html" class="p-header__nav-link">施工事例</a>
+          <a href="./works/" class="p-header__nav-link">施工事例</a>
         </li>
         <li class="p-header__nav-item">
-          <a href="./company.html" class="p-header__nav-link">我々について</a>
+          <a href="./company/" class="p-header__nav-link">我々について</a>
         </li>
         <li class="p-header__nav-item">
-          <a href="./recruit.html" class="p-header__nav-link">採用情報</a>
+          <a href="./recruit/" class="p-header__nav-link">採用情報</a>
         </li>
         <li class="p-header__nav-item">
-          <a href="./contact.html" class="p-header__nav-link">お問い合わせ</a>
+          <a href="./contact/" class="p-header__nav-link">お問い合わせ</a>
         </li>
       </ul>
     </nav>
