@@ -37,6 +37,7 @@ button {
     transition: .3s;
     &:hover {
       cursor: pointer;
+      opacity: .8;
     }
   }
 }
