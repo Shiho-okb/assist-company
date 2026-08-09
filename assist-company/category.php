@@ -88,24 +88,24 @@
               <?php
               // 投稿のカテゴリーを取得
               $post_categories = get_the_category();
-              $category_label = '';
-              $category_class = 'c-news-tag';
-              $category_data_attr = '';
+
+              // デフォルト値として最初から「News」をセットしておく
+              $category_label = 'News';
+              $category_class = 'c-news-card__category--news c-news-tag';
+              $category_data_attr = 'data-category="news"';
 
               // カテゴリースラッグに応じて設定
               if (! empty($post_categories)) {
                 foreach ($post_categories as $post_category) {
                   $category_slug = $post_category->slug;
 
-                  if ('uncategorized' === $category_slug) {
-                    continue;
-                  }
-
                   if ('news-info' === $category_slug) {
+                    // Newsの場合（明示的に選択されている場合）
                     $category_label = 'News';
                     $category_class = 'c-news-card__category--news c-news-tag';
                     $category_data_attr = 'data-category="news"';
                   } elseif ('recruit-info' === $category_slug) {
+                    // 採用の場合
                     $category_label = '採用';
                     $category_class = 'c-news-card__category--recruit c-news-tag';
                     $category_data_attr = 'data-category="recruit"';
@@ -159,6 +159,7 @@
           </div>
         </nav>
       <?php endif; ?>
+
     </div>
   </div>
 
