@@ -1,0 +1,74 @@
+@use "global" as *;
+
+.p-thanks {
+  background-color: $gray;
+  padding-block: rem(37) rem(100);
+  @include mq(md) {
+    padding-block: rem(20) rem(55);
+  }
+}
+
+.p-thanks__wrapper {
+  background-color: $white;
+  padding-block: rem(94) rem(92);
+  @include mq(md) {
+    padding: rem(35) rem(20) rem(40);
+  }
+}
+
+.p-thanks__main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include mq(md) {
+    max-width: rem(500);
+    margin: 0 auto;
+  }
+}
+
+.p-thanks__title {
+  font-size: rem(50);
+  font-weight: 700;
+  line-height: calc(75 / 50);
+  padding-bottom: rem(3);
+  border-bottom: rem(1) solid $red;
+  width: 100%;
+  text-align: center;
+  max-width: rem(800);
+  @include mq(md) {
+    font-size: rem(26);
+    line-height: calc(45 / 30);
+    padding-bottom: rem(2);
+    max-width: rem(600);
+    margin: 0 auto;
+  }
+}
+
+.p-thanks__text {
+  font-size: rem(22);
+  font-weight: 700;
+  line-height: calc(32 / 22);
+  margin-top: rem(43);
+  @include mq(md) {
+    font-size: rem(14);
+    line-height: calc(24 / 14);
+    margin-top: rem(25);
+    text-align: center;
+  }
+}
+
+.p-thanks__btn {
+  width: rem(300);
+  margin: rem(44) auto 0;
+  @include mq(md) {
+    width: rem(240);
+    margin: rem(40) auto 0;
+  }
+}
+
+.p-thanks__btn .c-btn {
+  height: rem(60);
+  @include mq(md) {
+    height: rem(50);
+  }
+}

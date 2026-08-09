@@ -1,0 +1,86 @@
+@use "global" as *;
+
+.c-column-card__item {
+  display: block;
+  color: $black;
+  text-decoration: none;
+}
+
+.c-column-card__image {
+  overflow: hidden;
+  aspect-ratio: 317 / 195;
+  @include mq(md) {
+    aspect-ratio: 335 / 195;
+  }
+}
+
+.c-column-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.c-column-card__body {
+  display: flex;
+  align-items: center;
+  margin-top: rem(10);
+}
+
+.c-column-card__category {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(90);
+  height: rem(33);
+  font-size: rem(14);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .03em;
+  color: $white;
+  background-color: $red;
+  @include mq(md) {
+    width: rem(72);
+    height: rem(26);
+    font-size: rem(12);
+  }
+}
+
+.c-column-card__date {
+  margin-left: rem(20);
+  font-size: rem(16);
+  font-weight: 700;
+  line-height: 1;
+  @include mq(md) {
+    margin-left: rem(10);
+    font-size: rem(14);
+  }
+}
+
+.c-column-card__title {
+  margin-top: rem(13);
+  font-size: rem(16);
+  font-weight: 500;
+  line-height: calc(26 / 16);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  @include mq(md) {
+    margin-top: rem(10);
+    font-size: rem(14);
+  }
+}
+
+// 各セクションごとに記載
+.p-column-cards {
+  display: flex;
+  gap: rem(25);
+  padding-inline: rem(120);
+  @include mq(md) {
+    max-width: rem(600);
+    gap: rem(30);
+    flex-direction: column;
+    padding-inline: 0;
+    margin: 0 auto;
+  }
+}

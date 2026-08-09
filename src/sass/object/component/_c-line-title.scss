@@ -1,0 +1,26 @@
+@use "global" as *;
+
+.c-line-title {
+  display: flex;
+  align-items: center;
+  font-size: rem(38);
+  font-weight: 700;
+  @include mq(md) {
+    font-size: rem(24);
+  }
+}
+
+.c-line-title span {
+  color: #b50000;
+}
+
+.c-line-title::after {
+  content: "";
+  flex: 1;
+  height: rem(1);
+  background-color: $black;
+  margin-left: rem(31);
+  @include mq(md) {
+    margin-left: rem(15);
+  }
+}

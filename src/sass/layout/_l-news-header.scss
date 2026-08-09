@@ -1,0 +1,8 @@
+@use "global" as *;
+
+.l-news-header {
+  margin-top: rem(100);
+  @include mq(md) {
+    margin-top: rem(60);
+  }
+}

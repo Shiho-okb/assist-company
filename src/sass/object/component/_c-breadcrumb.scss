@@ -1,0 +1,49 @@
+@use "global" as *;
+
+.c-breadcrumb {
+  background-color: $gray;
+}
+
+.c-breadcrumb__list {
+  display: flex;
+  align-items: center;
+  gap: rem(16);
+  font-size: rem(16);
+  line-height: 1;
+  @include mq(md) {
+    font-size: rem(12);
+    gap: rem(12);
+  }
+}
+
+.c-breadcrumb__item {
+  position: relative;
+}
+
+.c-breadcrumb__item a {
+  display: inline-block;
+  padding: rem(20) rem(20) rem(20) 0;
+  @include mq(md) {
+    padding: rem(15) rem(15) rem(15) 0;
+  }
+}
+
+.c-breadcrumb__item a:hover {
+  color: $red;
+}
+
+.c-breadcrumb__item:not(:last-child) {
+  padding-right: rem(12);
+  @include mq(md) {
+    padding-right: rem(8);
+  }
+}
+
+.c-breadcrumb__item:not(:last-child)::after {
+  content: "＞";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $black;
+}

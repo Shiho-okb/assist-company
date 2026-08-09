@@ -1,0 +1,8 @@
+@use "global" as *;
+
+.l-contact-header {
+  margin-top: rem(100);
+  @include mq(md) {
+    margin-top: rem(60);
+  }
+}

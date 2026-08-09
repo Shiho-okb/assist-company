@@ -1,0 +1,79 @@
+@use "global" as *;
+
+.p-recruit-cta {
+  background-color: $black;
+  padding-block: rem(86) rem(80);
+  @include mq(md) {
+    padding-block: rem(55);
+  }
+}
+
+.p-recruit-cta__inner {
+  max-width: calc(rem(1000) + #{$padding-pc} * 2);
+  @include mq(md) {
+    max-width: rem(600);
+  }
+}
+
+.p-recruit-cta__wrapper {
+  display: flex;
+  height: rem(233);
+  @include mq(md) {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+.p-recruit-cta__head {
+  width: 44.2%;
+  background-color: $red;
+  padding: rem(52) rem(114) 0 rem(78);
+  @include mq(md) {
+    width: 100%;
+    padding: rem(30) rem(20) rem(35);
+  }
+}
+
+.p-recruit-cta__title .c-title__ja{
+  margin-top: rem(16);
+  @include mq(md) {
+    margin-top: rem(10);
+  }
+}
+
+.p-recruit-cta__content {
+  width: 55.8%;
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @include mq(md) {
+    width: 100%;
+    padding: rem(35) rem(20);
+  }
+}
+
+.p-recruit-cta__catch {
+  font-size: rem(26);
+  font-weight: 700;
+  text-align: center;
+  @include mq(md) {
+    font-size: rem(16);
+  }
+}
+
+.p-recruit-cta__btn {
+  width: rem(300);
+  margin-top: rem(15);
+  @include mq(md) {
+    width: rem(240);
+  }
+}
+
+.p-recruit-cta .c-btn {
+  height: rem(60);
+  @include mq(md) {
+    height: rem(50);
+  }
+}

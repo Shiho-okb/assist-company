@@ -1,0 +1,58 @@
+@use "global" as *;
+
+.p-top-news__inner {
+  max-width: calc(rem(1000) + #{$padding-pc} * 2);
+  @include mq(md) {
+    max-width: rem(600);
+  }
+}
+
+.p-top-news__wrapper {
+  background-color: $white;
+  padding: rem(40) rem(74);
+  @include mq(md) {
+    padding: rem(30) rem(20);
+  }
+}
+
+.p-top-news__content {
+  display: grid;
+  grid-template-columns: rem(161) 1fr;
+  column-gap: rem(60);
+  align-items: start;
+  @include mq(md) {
+    display: block;
+  }
+}
+
+.p-top-news__title {
+  margin-top: rem(-10);
+  @include mq(md) {
+    margin-bottom: rem(24);
+  }
+}
+
+.p-top-news__cards {
+  display: flex;
+  flex-direction: column;
+  gap: rem(10);
+  @include mq(md) {
+    gap: rem(15);
+  }
+}
+
+.p-top-news__btn {
+  width: rem(300);
+  margin: rem(30) auto 0;
+  @include mq(md) {
+    width: rem(240);
+    margin: rem(24) auto 0;
+  }
+}
+
+.p-top-news__btn .c-btn{
+  height: rem(60);
+  @include mq(md) {
+    height: rem(50);
+  }
+}

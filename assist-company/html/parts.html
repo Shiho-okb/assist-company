@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+  <!-- meta情報 -->
+  <title>タイトル</title>
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <!-- ogp -->
+  <meta property="og:title" content="" />
+  <meta property="og:type" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:site_name" content="" />
+  <meta property="og:description" content="" />
+  <meta name="robots" content="noindex, nofollow" /> <!-- 検索エンジンにインデックスしないよう指示 -->
+  <meta name="googlebot" content="noindex, nofollow" /> <!-- Googleのクローラーにインデックスしないよう指示 -->
+  <meta name="msnbot" content="noindex, nofollow" /> <!-- Bingのクローラーにインデックスしないよう指示 -->
+  <meta name="slurp" content="noindex, nofollow" /> <!-- Yahooのクローラーにインデックスしないよう指示 -->
+  <!-- ファビコン -->
+  <!-- <link rel="icon" href="" /> -->
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+  <!-- css -->
+  <link rel="stylesheet" href="./css/styles.css">
+  <!-- JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js" defer></script>
+  <script src="./js/script.js" defer></script>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="p-header l-header">
+    <a href="#" class="p-header__logo">CODO ASSIST</a>
+    <button class="p-header__hamburger js-hamburger" aria-label="ハンバーガーボタン">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="p-header__nav js-drawer">
+      <ul class="p-header__nav-list">
+        <li class="p-header__nav-item">
+          <a href="#" class="p-header__nav-link p-header__nav-link--active">ホーム</a>
+        </li>
+        <li class="p-header__nav-item">
+          <a href="#" class="p-header__nav-link">お知らせ</a>
+        </li>
+        <li class="p-header__nav-item">
+          <a href="#" class="p-header__nav-link">施工事例</a>
+        </li>
+        <li class="p-header__nav-item">
+          <a href="#" class="p-header__nav-link">我々について</a>
+        </li>
+        <li class="p-header__nav-item">
+          <a href="#" class="p-header__nav-link">採用情報</a>
+        </li>
+        <li class="p-header__nav-item">
+          <a href="#" class="p-header__nav-link">お問い合わせ</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 下層ページのページヘッダー -->
+  <div class="c-page-header" style="margin-top: 100px;">
+    <div class="c-page-header__inner l-inner">
+      <div class="c-page-header__wrapper">
+        <h1 class="c-page-header__title c-title ">
+          <span class="c-title__en">News</span>
+          <span class="c-title__ja">お知らせ</span>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <!-- パンくずリスト -->
+  <div class="c-breadcrumb">
+    <div class="c-breadcrumb__inner l-inner">
+      <ol class="c-breadcrumb__list">
+        <li class="c-breadcrumb__item">
+          <a href="#">
+            TOP
+          </a>
+        </li>
+        <li class="c-breadcrumb__item">
+          お知らせ
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="l-inner">
+    <p class="p-test">パーツページです!</p>
+
+    <!-- c-btn -->
+    <div class="p-btn">
+      <a href="#" class="c-btn">
+        MORE
+        <span></span>
+      </a>
+    </div>
+
+    <div class="p-btn">
+      <a href="#" class="c-btn c-btn--white">
+        MORE
+        <span></span>
+      </a>
+    </div>
+
+    <!-- c-title -->
+    <h2 class="c-title">
+      <span class="c-title__en">News</span>
+      <span class="c-title__ja">お知らせ</span>
+    </h2>
+
+    <h2 class="c-title c-title--white">
+      <span class="c-title__en">News</span>
+      <span class="c-title__ja">お知らせ</span>
+    </h2>
+
+    <h2 class="c-line-title">
+      <span>関</span>連記事
+    </h2>
+
+    <ul class="p-works-cards">
+      <!-- c-works-card1 -->
+      <li class="c-works-card">
+        <a href="#" class="c-works-card__item">
+          <div class="c-works-card__image">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/dummy1.webp'); ?>" alt="スカイタワー新橋" width="317" height="195" loading="lazy" decoding="async">
+          </div>
+          <div class="c-works-card__body">
+            <h3 class="c-works-card__title">
+              スカイタワー新橋
+            </h3>
+            <p class="c-works-card__text">
+              近年急速に都市機能の更新が進むビジネスエリア「新橋」で企画・設計・施工を手掛けた自社開発物件で、駅から徒歩9分の好立地に位置する高規格な賃貸オフィスビルです。
+            </p>
+            <div class="c-works-card__tags">
+              <span class="c-works-card__tag c-works-card__tag--black c-works-card__tag--office">
+                オフィスビル
+              </span>
+              <span class="c-works-card__tag c-works-card__tag--white">
+                2025年
+              </span>
+            </div>
+          </div>
+        </a>
+      </li>
+      <!-- c-works-card2 -->
+      <li class="c-works-card">
+        <a href="#" class="c-works-card__item">
+          <div class="c-works-card__image">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/dummy1.webp'); ?>" alt="スカイタワー新橋" width="317" height="195" loading="lazy" decoding="async">
+          </div>
+          <div class="c-works-card__body">
+            <h3 class="c-works-card__title">
+              スカイタワー新橋
+            </h3>
+            <p class="c-works-card__text">
+              近年急速に都市機能の更新が進むビジネスエリア「新橋」で企画・設計・施工を手掛けた自社開発物件で、駅から徒歩9分の好立地に位置する高規格な賃貸オフィスビルです。
+            </p>
+            <div class="c-works-card__tags">
+              <span class="c-works-card__tag c-works-card__tag--black">
+                福祉施設
+              </span>
+              <span class="c-works-card__tag c-works-card__tag--white">
+                2025年
+              </span>
+            </div>
+          </div>
+        </a>
+      </li>
+      <!-- c-works-card3 -->
+      <li class="c-works-card">
+        <a href="#" class="c-works-card__item">
+          <div class="c-works-card__image">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/dummy1.webp'); ?>" alt="スカイタワー新橋" width="317" height="195" loading="lazy" decoding="async">
+          </div>
+          <div class="c-works-card__body">
+            <h3 class="c-works-card__title">
+              スカイタワー新橋
+            </h3>
+            <p class="c-works-card__text">
+              近年急速に都市機能の更新が進むビジネスエリア「新橋」で企画・設計・施工を手掛けた自社開発物件で、駅から徒歩9分の好立地に位置する高規格な賃貸オフィスビルです。
+            </p>
+            <div class="c-works-card__tags">
+              <span class="c-works-card__tag c-works-card__tag--black">
+                教育施設
+              </span>
+              <span class="c-works-card__tag c-works-card__tag--white">
+                2025年
+              </span>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+
+    <ol class="p-news-cards">
+      <!-- c-news-card1 -->
+      <li class="c-news-card">
+        <a href="#" class="c-news-card__item">
+          <span class="c-news-card__category c-news-card__category--news">
+            News
+          </span>
+          <time class="c-news-card__date" datetime="2025-12-14">
+            2025.12.14
+          </time>
+          <p class="c-news-card__title">
+            TVCMが放映されます
+          </p>
+        </a>
+      </li>
+      <!-- c-news-card2 -->
+      <li class="c-news-card">
+        <a href="#" class="c-news-card__item">
+          <span class="c-news-card__category c-news-card__category--news">
+            News
+          </span>
+          <time class="c-news-card__date" datetime="2025-12-14">
+            2025.12.14
+          </time>
+          <p class="c-news-card__title">
+            TVCMが放映されます
+          </p>
+        </a>
+      </li>
+      <!-- c-news-card3 -->
+      <li class="c-news-card">
+        <a href="#" class="c-news-card__item">
+          <span class="c-news-card__category c-news-card__category--news">
+            News
+          </span>
+          <time class="c-news-card__date" datetime="2025-12-14">
+            2025.12.14
+          </time>
+          <p class="c-news-card__title">
+            TVCMが放映されます
+          </p>
+        </a>
+      </li>
+      <!-- c-news-card4 -->
+      <li class="c-news-card">
+        <a href="#" class="c-news-card__item">
+          <span class="c-news-card__category c-news-card__category--news">
+            News
+          </span>
+          <time class="c-news-card__date" datetime="2025-12-14">
+            2025.12.14
+          </time>
+          <p class="c-news-card__title">
+            TVCMが放映されます
+          </p>
+        </a>
+      </li>
+      <!-- c-news-card5 -->
+      <li class="c-news-card">
+        <a href="#" class="c-news-card__item">
+          <span class="c-news-card__category c-news-card__category--news">
+            News
+          </span>
+          <time class="c-news-card__date" datetime="2025-12-14">
+            2025.12.14
+          </time>
+          <p class="c-news-card__title">
+            TVCMが放映されます
+          </p>
+        </a>
+      </li>
+    </ol>
+
+    <!-- 関連記事 -->
+    <ul class="p-column-cards">
+      <li class="c-column-card">
+        <a href="#" class="c-column-card__item">
+          <div class="c-column-card__image">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/dummy1.webp'); ?>" alt="新年の挨拶" width="317" height="195" loading="lazy" decoding="async">
+          </div>
+          <div class="c-column-card__body">
+            <span class="c-column-card__category">
+              NEWS
+            </span>
+            <time class="c-column-card__date" datetime="2024-11-16">
+              2024.11.16
+            </time>
+          </div>
+          <p class="c-column-card__title">
+            ここにタイトル入れるここにタイトル入れるここにタイトル入れるここにタイトル入れる
+          </p>
+        </a>
+      </li>
+      <li class="c-column-card">
+        <a href="#" class="c-column-card__item">
+          <div class="c-column-card__image">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/dummy1.webp'); ?>" alt="新年の挨拶" width="317" height="195" loading="lazy" decoding="async">
+          </div>
+          <div class="c-column-card__body">
+            <span class="c-column-card__category">
+              NEWS
+            </span>
+            <time class="c-column-card__date" datetime="2024-11-16">
+              2024.11.16
+            </time>
+          </div>
+          <p class="c-column-card__title">
+            ここにタイトル入れるここにタイトル入れるここにタイトル入れるここにタイトル入れる
+          </p>
+        </a>
+      </li>
+      <li class="c-column-card">
+        <a href="#" class="c-column-card__item">
+          <div class="c-column-card__image">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/dummy1.webp'); ?>" alt="新年の挨拶" width="317" height="195" loading="lazy" decoding="async">
+          </div>
+          <div class="c-column-card__body">
+            <span class="c-column-card__category">
+              NEWS
+            </span>
+            <time class="c-column-card__date" datetime="2024-11-16">
+              2024.11.16
+            </time>
+          </div>
+          <p class="c-column-card__title">
+            ここにタイトル入れるここにタイトル入れるここにタイトル入れるここにタイトル入れる
+          </p>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- フッター -->
+  <footer class="p-footer">
+    <nav class="p-footer__nav">
+      <ul class="p-footer__nav-list">
+        <li class="p-footer__nav-item">
+          <a href="#" class="p-footer__nav-link">ホーム</a>
+        </li>
+        <li class="p-footer__nav-item">
+          <a href="#" class="p-footer__nav-link">お知らせ</a>
+        </li>
+        <li class="p-footer__nav-item">
+          <a href="#" class="p-footer__nav-link">施工事例</a>
+        </li>
+        <li class="p-footer__nav-item">
+          <a href="#" class="p-footer__nav-link">我々について</a>
+        </li>
+        <li class="p-footer__nav-item">
+          <a href="#" class="p-footer__nav-link">採用情報</a>
+        </li>
+        <li class="p-footer__nav-item">
+          <a href="#" class="p-footer__nav-link">お問い合わせ</a>
+        </li>
+      </ul>
+    </nav>
+    <small class="p-footer__copyright">&copy;2024 CODO ASSIST</small>
+  </footer>
+
+</body>
+</html>

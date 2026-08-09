@@ -1,0 +1,193 @@
+@use "global" as *;
+
+.p-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: rem(100) rem(73);
+  height: rem(100);
+  background: $white;
+  transition: transform .4s;
+  @include mq(md) {
+    padding-inline: rem(20) rem(12);
+    height: rem(60);
+  }
+}
+
+.p-header__logo {
+  font-size: rem(30);
+  font-weight: 900;
+  letter-spacing: .05em;
+  color: $white;
+  background: $black;
+  padding: rem(7.5) rem(42);
+  text-decoration: none;
+  display: inline-block;
+  @include mq(md) {
+    font-size: rem(20);
+    font-weight: 700;
+    padding: rem(6) rem(16);
+  }
+}
+
+.p-header__hamburger {
+  @include mq(md) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: rem(6);
+    width: rem(44);
+    height: rem(44);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: rem(8);
+    position: relative;
+    z-index: 100;
+  }
+}
+
+.p-header__hamburger span {
+  @include mq(md) {
+    display: block;
+    width: 100%;
+    height: rem(2);
+    background: $black;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+  }
+}
+
+.p-header__hamburger.is-active span:nth-child(1) {
+  @include mq(md) {
+    transform: translateY(rem(8)) rotate(45deg);
+  }
+}
+
+.p-header__hamburger.is-active span:nth-child(2) {
+  @include mq(md) {
+    opacity: 0;
+  }
+}
+
+.p-header__hamburger.is-active span:nth-child(3) {
+  @include mq(md) {
+    transform: translateY(rem(-8)) rotate(-45deg);
+  }
+}
+
+/*-------------------------------------------
+ナビゲーション
+-------------------------------------------*/
+.p-header__nav {
+  height: inherit;
+  @include mq(md) {
+    display: none;
+    position: fixed;
+    top: rem(60);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $white;
+    height: auto;
+    z-index: 99;
+    overflow-y: auto;
+  }
+}
+
+.p-header__nav.is-open {
+  @include mq(md) {
+    display: block;
+  }
+}
+
+.p-header__nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  @include mq(md) {
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    padding: rem(20);
+    max-width: rem(600);
+    margin: 0 auto;
+  }
+}
+
+.p-header__nav-item {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  @include mq(md) {
+    height: auto;
+    display: block;
+    border-bottom: rem(1) solid $gray;
+  }
+}
+
+/* セパレーターの縦線 */
+.p-header__nav-item+.p-header__nav-item::before {
+  content: "";
+  display: inline-block;
+  width: rem(1);
+  height: rem(16);
+  background: $black;
+  @include mq(md) {
+    display: none;
+  }
+}
+
+.p-header__nav-link {
+  text-decoration: none;
+  font-size: rem(16);
+  font-weight: 600;
+  letter-spacing: .05em;
+  color: $black;
+  padding-inline: rem(27);
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  @include mq(md) {
+    display: block;
+    font-weight: 500;
+    height: auto;
+    padding: rem(15);
+  }
+}
+
+/* アクティブ・ホバー共通の下線ベース */
+.p-header__nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: rem(35);
+  left: rem(21);
+  height: rem(1);
+  background: $red;
+  width: 0;
+  transition: width 0.3s ease;
+  @include mq(md) {
+    display: none;
+  }
+}
+
+.p-header__nav-link:hover {
+  color: $red;
+}
+
+/* ホバー時に左から伸びる */
+.p-header__nav-link:hover::after {
+  width: calc(100% - rem(42)); /* left: rem(21) × 2分を引く */
+}
+
+/* アクティブ（現在のページ） */
+.p-header__nav-link--active {
+  color: $red;
+}
+
+/* アクティブは常に表示 */
+.p-header__nav-link--active::after {
+  width: calc(100% - rem(42)); /* left: rem(21) × 2分を引く */
+}

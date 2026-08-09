@@ -1,0 +1,44 @@
+@use "global" as *;
+
+.p-works {
+  background-color: $gray;
+  padding-block: rem(35) rem(74);
+  @include mq(md) {
+    padding-block: rem(20) rem(50);
+  }
+}
+
+.p-works__wrapper {
+  background-color: $white;
+  padding: rem(89) rem(120) rem(82);
+  @include mq(md) {
+    padding: rem(35) rem(20) rem(40);
+  }
+}
+
+.p-works__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: rem(50) rem(24);
+  margin-top: rem(60);
+  @include mq(md) {
+    grid-template-columns: 1fr;
+    max-width: rem(500);
+    margin: rem(35) auto 0;
+    gap: rem(35);
+  }
+}
+
+.p-works__cards .c-works-card {
+  width: rem(317);
+  @include mq(md) {
+    width: 100%;
+  }
+}
+
+.p-works__pagination {
+  margin-top: rem(76);
+  @include mq(md) {
+    margin-top: rem(40);
+  }
+}

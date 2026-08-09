@@ -1,0 +1,11 @@
+@use 'global' as *;
+
+.l-top-news {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  top: rem(-150);
+  @include mq(md) {
+    top: rem(-105);
+  }
+}

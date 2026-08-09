@@ -1,0 +1,73 @@
+@use "global" as *;
+
+.c-news-card__item {
+  display: flex;
+  align-items: center;
+  gap: rem(20);
+  color: $black;
+  text-decoration: none;
+  @include mq(md) {
+    gap: rem(10);
+  }
+}
+
+.c-news-card__category {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(80);
+  height: rem(25);
+  font-size: rem(14);
+  font-weight: 700;
+  line-height: 1;
+  color: $white;
+  @include mq(md) {
+    width: rem(60);
+    height: rem(20);
+    font-size: rem(10);
+  }
+}
+
+.c-news-card__category--news {
+  background-color: $red;
+}
+
+.c-news-card__category--recruit {
+  background-color: $black;
+}
+
+.c-news-card__category--blog {
+  background-color: $blue;
+}
+
+.c-news-card__date {
+  flex-shrink: 0;
+  font-size: rem(16);
+  line-height: 1;
+  @include mq(md) {
+    font-size: rem(12);
+  }
+}
+
+.c-news-card__title {
+  min-width: 0;
+  font-size: rem(16);
+  line-height: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  margin-left: rem(27);
+  @include mq(md) {
+    margin-left: rem(8);
+    font-size: rem(12);
+  }
+}
+
+// 各セクションごとに記載
+.p-news-cards {
+  display: flex;
+  flex-direction: column;
+  gap: rem(10);
+}

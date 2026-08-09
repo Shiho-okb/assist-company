@@ -1,0 +1,74 @@
+@use "global" as *;
+
+.p-404 {
+  background-color: $gray;
+  padding-block: rem(37) rem(100);
+  @include mq(md) {
+    padding-block: rem(20) rem(55);
+  }
+}
+
+.p-404__wrapper {
+  background-color: $white;
+  padding-block: rem(93) rem(90);
+  @include mq(md) {
+    padding: rem(35) rem(20) rem(40);
+  }
+}
+
+.p-404__main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include mq(md) {
+    max-width: rem(500);
+    margin: 0 auto;
+  }
+}
+
+.p-404__title {
+  font-size: rem(60);
+  font-weight: 700;
+  line-height: 1;
+  padding-bottom: rem(7);
+  border-bottom: rem(1) solid $red;
+  width: 100%;
+  text-align: center;
+  max-width: rem(479);
+  @include mq(md) {
+    font-size: rem(26);
+    line-height: calc(45 / 30);
+    padding-bottom: rem(2);
+    max-width: rem(250);
+    margin: 0 auto;
+  }
+}
+
+.p-404__text {
+  font-size: rem(24);
+  font-weight: 700;
+  line-height: calc(40 / 24);
+  margin-top: rem(44);
+  @include mq(md) {
+    font-size: rem(14);
+    line-height: calc(24 / 14);
+    margin-top: rem(25);
+    text-align: center;
+  }
+}
+
+.p-404__btn {
+  width: rem(300);
+  margin: rem(44) auto 0;
+  @include mq(md) {
+    width: rem(240);
+    margin: rem(40) auto 0;
+  }
+}
+
+.p-404__btn .c-btn {
+  height: rem(60);
+  @include mq(md) {
+    height: rem(50);
+  }
+}

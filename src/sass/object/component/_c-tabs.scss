@@ -1,0 +1,37 @@
+@use "global" as *;
+
+.c-tabs {
+  display: flex;
+  align-items: center;
+  @include mq(md) {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+.c-tabs li {
+  font-size: rem(14);
+  font-weight: 700;
+  @include mq(md) {
+    font-size: rem(13);
+  }
+}
+
+.c-tabs a {
+  display: inline-block;
+  padding: rem(2) rem(20);
+  @include mq(md) {
+    padding: rem(5) rem(17);
+  }
+}
+
+.c-tabs li:first-child {
+  padding-right: rem(20);
+  @include mq(md) {
+    padding-right: rem(17);
+  }
+}
+
+.c-tabs .is-active a {
+  background-color: #FFF1F1;
+}

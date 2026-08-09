@@ -1,0 +1,52 @@
+@use "global" as *;
+
+.p-privacy {
+  background-color: $gray;
+  padding-block: rem(39) rem(95);
+  @include mq(md) {
+    padding-block: rem(20) rem(55);
+  }
+}
+
+.p-privacy__wrapper {
+  background-color: $white;
+  padding: rem(92) rem(120) rem(92);
+  @include mq(md) {
+    padding: rem(35) rem(20);
+  }
+}
+
+.p-privacy__body {
+  font-size: rem(16);
+  line-height: calc(20 / 16);
+  @include mq(md) {
+    font-size: rem(11);
+    max-width: rem(550);
+    margin: 0 auto;
+  }
+}
+
+.p-privacy__body h2 {
+  font-size: rem(16);
+  line-height: calc(20 / 16);
+  font-weight: 400;
+  @include mq(md) {
+    font-size: rem(12);
+  }
+}
+
+.p-privacy__body ol {
+  list-style: decimal; // 1. 2. 3.
+  padding-left: rem(25);
+  @include mq(md) {
+    padding-left: rem(15);
+  }
+}
+
+.p-privacy__body ol ol {
+  list-style-type: lower-alpha; // a. b. c.
+}
+
+.p-privacy__body ol ol ol {
+  list-style-type: lower-roman; // i. ii. iii.
+}

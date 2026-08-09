@@ -1,0 +1,63 @@
+@use "global" as *;
+
+.p-top-works {
+  padding-block: rem(217) rem(78);
+  background-color: $gray;
+  @include mq(md) {
+    padding-block: rem(238) rem(55);
+  }
+}
+
+.p-top-works__wrapper {
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: rem(77) rem(120) rem(50);
+  @include mq(md) {
+    padding: rem(50) rem(20);
+  }
+}
+
+.p-top-works__title {
+  align-items: center;
+}
+
+.p-top-works__title .c-title__ja {
+  margin-left: 0;
+}
+
+.p-top-works__cards {
+  display: flex;
+  gap: rem(23);
+  margin-top: rem(61);
+  @include mq(md) {
+    flex-direction: column;
+    max-width: rem(500);
+    gap: rem(35);
+    margin: rem(45) auto 0;
+  }
+}
+
+.p-top-works__cards .c-works-card {
+  width: rem(317);
+  @include mq(md) {
+    width: 100%;
+  }
+}
+
+.p-top-works__btn {
+  width: rem(300);
+  margin-top: rem(97);
+  @include mq(md) {
+    width: rem(240);
+    margin-top: rem(40);
+  }
+}
+
+.p-top-works__btn .c-btn {
+  height: rem(60);
+  @include mq(md) {
+    height: rem(50);
+  }
+}

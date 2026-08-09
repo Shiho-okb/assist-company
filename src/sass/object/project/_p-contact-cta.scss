@@ -1,0 +1,50 @@
+@use "global" as *;
+
+.p-contact-cta {
+  background-color: $gray;
+}
+
+.p-contact-cta__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: rem(86) rem(100);
+  @include mq(md) {
+    padding-block: rem(60) rem(70);
+  }
+}
+
+.p-contact-cta__title {
+  align-items: center;
+}
+
+.p-contact-cta__title .c-title__en {
+  font-size: rem(70);
+  @include mq(md) {
+    font-size: rem(50);
+  }
+}
+
+.p-contact-cta__title .c-title__ja {
+  margin-left: 0;
+  margin-top: rem(17);
+  @include mq(md) {
+    margin-top: rem(10);
+  }
+}
+
+.p-contact-cta__btn {
+  width: rem(300);
+  margin-top: rem(44);
+  @include mq(md) {
+    width: rem(240);
+    margin-top: rem(24);
+  }
+}
+
+.p-contact-cta__btn .c-btn {
+  height: rem(60);
+  @include mq(md) {
+    height: rem(50);
+  }
+}

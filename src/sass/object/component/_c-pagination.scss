@@ -1,0 +1,86 @@
+@use "global" as *;
+
+.c-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include mq(md) {
+    margin-top: rem(40);
+  }
+}
+
+.c-pagination a,
+.c-pagination span {
+  font-size: rem(18);
+  font-weight: 700;
+  color: #6A6A6A;
+  padding: rem(5) rem(9);
+  @include mq(md) {
+    font-size: rem(14);
+    padding: rem(4) rem(6);
+  }
+}
+
+.c-pagination .is-current {
+  color: $red;
+  text-decoration: underline;
+  text-underline-offset: rem(4);
+  @include mq(md) {
+    text-underline-offset: rem(3);
+  }
+}
+
+.c-pagination a.c-pagination__prev,
+.c-pagination a.c-pagination__next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: rem(30);
+  height: rem(30);
+  background-color: $red;
+  padding: 0;
+  @include mq(md) {
+    width: rem(24);
+    height: rem(24);
+  }
+}
+
+.c-pagination a.c-pagination__prev {
+  margin-right: rem(34);
+  @include mq(md) {
+    margin-right: rem(15);
+  }
+}
+
+.c-pagination a.c-pagination__next {
+  margin-left: rem(34);
+  @include mq(md) {
+    margin-left: rem(15);
+  }
+}
+
+.c-pagination__prev::before {
+  content: "";
+  width: rem(7.5);
+  height: rem(13);
+  background-image: url("../images/prev.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  @include mq(md) {
+    width: rem(6);
+    height: rem(10);
+  }
+}
+
+.c-pagination__next::before {
+  content: "";
+  width: rem(7.5);
+  height: rem(13);
+  background-image: url("../images/next.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  @include mq(md) {
+    width: rem(6);
+    height: rem(10);
+  }
+}

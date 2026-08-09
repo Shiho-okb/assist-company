@@ -1,0 +1,101 @@
+@use "sass:math";
+@use "sass:map";
+
+// インナー幅
+$innerWidth: 1240px;
+
+// 余白
+$padding-pc: 25px;
+$padding-sp: 20px;
+
+// フォント
+$font-main: "Noto Sans JP", sans-serif;
+
+// 色指定
+$red: #B10000;
+$black: #000;
+$blue: #005CB1;
+$white: #fff;
+$gray: #F0F0F0;
+
+// フォントウェイト
+$font-weights: (
+  normal: 400,
+  medium: 500,
+  bold: 700,
+  black: 900,
+);
+
+// ブレイクポイント
+$breakpoints: (
+  xs: 480,
+  sm: 600,
+  md: 767,
+  lg: 1024,
+  xl: 1440,
+);
+
+// メディアクエリ
+$mediaquerys: (
+  xs: "screen and (max-width: #{map.get($breakpoints, 'xs')}px)",
+  sm: "screen and (max-width: #{map.get($breakpoints, 'sm')}px)",
+  md: "screen and (max-width: #{map.get($breakpoints, 'md')}px)",
+  lg: "screen and (max-width: #{map.get($breakpoints, 'lg')}px)",
+  xl: "screen and (max-width: #{map.get($breakpoints, 'xl')}px)",
+);
+
+// メディアクエリ mixin（PCファースト用：max-width）
+// 使い方: @include mq(sm) {} / @include mq(md) {} など
+// 引数なしの場合はデフォルトで md (767px以下) が適用される
+@mixin mq($mediaquery: md) {
+  @media #{map.get($mediaquerys, $mediaquery)} {
+    @content;
+  }
+}
+
+// line-height
+@mixin l_height($pixels, $height) {
+  font-size: $pixels * 1px;
+  line-height: $height / $pixels;
+}
+
+@mixin f_around($pixels, $height: false, $weight: false, $spacing: false) {
+  font-size: $pixels * 1px;
+
+  @if $weight {
+    font-weight: $weight;
+  }
+
+  @if $height {
+    line-height: $height / $pixels;
+  }
+
+  @if $spacing {
+    letter-spacing: ($spacing / 1000) * 1em;
+  }
+}
+
+// 呼び出し例
+// ＠include f_around(フォントサイズ18px, 行送り30 , 太さW6, トラッキング200)
+
+$z-index-values: (
+  "modal": 1000,
+  "dropdown": 900,
+  "tooltip": 800,
+  "overlay": 700,
+  "header": 600,
+  "sidebar": 500,
+);
+
+@mixin set-z-index($element) {
+  @if map-has-key($z-index-values, $element) {
+    z-index: map-get($z-index-values, $element);
+  } @else {
+    @warn "無効なz-index要素です: #{$element}";
+  }
+}
+
+// 使用例:
+// .my-modal {
+//   @include set-z-index("modal");
+// }

@@ -1,0 +1,35 @@
+@use "global" as *;
+
+.c-page-header {
+  position: relative;
+  height: rem(300);
+  // background-image: url(../images/news/news_header.webp);
+  background-size: cover;
+  background-position: center;
+  @include mq(md) {
+    height: rem(180);
+  }
+}
+
+.c-page-header__inner {
+  max-width: calc(rem(1010) + #{$padding-pc} * 2);
+  height: 100%;
+  @include mq(md) {
+    max-width: rem(600);
+  }
+}
+
+.c-page-header__wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.c-page-header__title {
+  position: relative;
+  z-index: 1;
+  margin-top: rem(-22);
+  @include mq(md) {
+    margin-top: rem(-11);
+  }
+}

@@ -1,0 +1,27 @@
+@use "global" as *;
+
+.p-test {
+  color: var(--c-main);
+  font-size: rem(80);
+  text-align: center;
+  font-weight: 700;
+  padding-block: rem(105) 0;
+  margin-block: rem(30);
+  @include mq(md) {
+    color: red;
+    font-size: rem(30);
+    margin-block: rem(15);
+    padding-block: rem(45) 0;
+  }
+}
+
+.p-test__img {
+  max-width: rem(700);
+  width: 100%;
+  margin-inline: auto;
+  margin-top: rem(50);
+  @include mq(md) {
+    max-width: rem(500);
+    margin-top: 0;
+  }
+}
