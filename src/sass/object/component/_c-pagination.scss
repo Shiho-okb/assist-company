@@ -21,7 +21,7 @@
   }
 }
 
-.c-pagination .is-current {
+.c-pagination .current {
   color: $red;
   text-decoration: underline;
   text-underline-offset: rem(4);
@@ -30,8 +30,8 @@
   }
 }
 
-.c-pagination a.c-pagination__prev,
-.c-pagination a.c-pagination__next {
+.c-pagination a.prev,
+.c-pagination a.next {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,21 +45,21 @@
   }
 }
 
-.c-pagination a.c-pagination__prev {
+.c-pagination a.prev {
   margin-right: rem(34);
   @include mq(md) {
     margin-right: rem(15);
   }
 }
 
-.c-pagination a.c-pagination__next {
+.c-pagination a.next {
   margin-left: rem(34);
   @include mq(md) {
     margin-left: rem(15);
   }
 }
 
-.c-pagination__prev::before {
+.prev::before {
   content: "";
   width: rem(7.5);
   height: rem(13);
@@ -72,7 +72,7 @@
   }
 }
 
-.c-pagination__next::before {
+.next::before {
   content: "";
   width: rem(7.5);
   height: rem(13);
