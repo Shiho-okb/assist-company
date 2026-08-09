@@ -73,6 +73,7 @@
  .p-news-post__body p {
   font-size: rem(16);
   line-height: calc(28 / 16);
+  margin-top: rem(16);
   @include mq(md) {
     font-size: rem(14);
     line-height: calc(24 / 14);
@@ -132,6 +133,22 @@
 .p-news-post__body dt {
   font-weight: 700;
   margin-left: rem(3);
+}
+
+.p-news-post__body ul {
+  list-style: disc;
+  list-style-position: inside;
+  margin-top: rem(20);
+}
+
+.p-news-post__body ol {
+  list-style: decimal;
+  list-style-position: inside;
+  margin-top: rem(20);
+}
+
+.p-news-post__body figure {
+  margin-top: rem(20);
 }
 
 .p-news-post__note {

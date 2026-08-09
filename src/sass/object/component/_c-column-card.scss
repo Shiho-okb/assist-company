@@ -37,12 +37,24 @@
   line-height: 1;
   letter-spacing: .03em;
   color: $white;
-  background-color: $red;
+  background-color: $blue;
   @include mq(md) {
     width: rem(72);
     height: rem(26);
     font-size: rem(12);
   }
+}
+
+.c-column-card__category--news {
+  background-color: $red;
+}
+
+.c-column-card__category--recruit {
+  background-color: $black;
+}
+
+.c-column-card__category--blog {
+  background-color: $blue;
 }
 
 .c-column-card__date {

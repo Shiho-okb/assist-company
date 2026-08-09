@@ -494,7 +494,7 @@ button {
 
 .c-column-card__category {
   align-items: center;
-  background-color: #B10000;
+  background-color: #005CB1;
   color: #fff;
   display: flex;
   font-size: 0.875rem;
@@ -512,6 +512,18 @@ button {
     height: 1.625rem;
     width: 4.5rem;
   }
+}
+
+.c-column-card__category--news {
+  background-color: #B10000;
+}
+
+.c-column-card__category--recruit {
+  background-color: #000;
+}
+
+.c-column-card__category--blog {
+  background-color: #005CB1;
 }
 
 .c-column-card__date {
@@ -2113,6 +2125,7 @@ p-company--low
 .p-news-post__body p {
   font-size: 1rem;
   line-height: 1.75;
+  margin-top: 1rem;
 }
 
 @media screen and (max-width: 767px) {
@@ -2189,6 +2202,22 @@ p-company--low
 .p-news-post__body dt {
   font-weight: 700;
   margin-left: 0.1875rem;
+}
+
+.p-news-post__body ul {
+  list-style: disc;
+  list-style-position: inside;
+  margin-top: 1rem;
+}
+
+.p-news-post__body ol {
+  list-style: decimal;
+  list-style-position: inside;
+  margin-top: 1rem;
+}
+
+.p-news-post__body figure {
+  margin-top: 1.25rem;
 }
 
 .p-news-post__note {
