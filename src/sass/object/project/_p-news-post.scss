@@ -209,3 +209,9 @@
     margin: rem(20) auto 0;
   }
 }
+
+.p-news-post__card {
+  flex: 1 1 0; // すべてのカードを全く同じ幅で均等に割り分ける
+  min-width: 0;
+  width: 100%;
+}

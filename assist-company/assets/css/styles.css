@@ -469,6 +469,7 @@ button {
 }
 
 .c-column-card__image {
+  width: 100%;
   aspect-ratio: 317/195;
   overflow: hidden;
 }
@@ -2295,6 +2296,12 @@ p-company--low
     margin: 1.25rem auto 0;
     max-width: 31.25rem;
   }
+}
+
+.p-news-post__card {
+  flex: 1 1 0;
+  min-width: 0;
+  width: 100%;
 }
 
 .p-news {

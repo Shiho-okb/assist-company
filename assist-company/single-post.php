@@ -96,9 +96,12 @@
             </time>
           </div>
 
-          <div class="p-news-post__image">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/news-post/news-post_01.webp'); ?>" alt="<?php the_title_attribute(); ?>" width="1000" height="560" loading="lazy" decoding="async">
-          </div>
+          <?php if (has_post_thumbnail()) : ?>
+            <!-- 記事本文：アイキャッチ画像がある時のみ表示 -->
+            <div class="p-news-post__image">
+              <?php the_post_thumbnail('full', array('loading' => 'lazy', 'decoding' => 'async', 'alt' => get_the_title())); ?>
+            </div>
+          <?php endif; ?>
 
           <div class="p-news-post__body">
             <?php the_content(); ?>
@@ -180,9 +183,11 @@
                   <a href="<?php the_permalink(); ?>" class="c-column-card__item">
                     <div class="c-column-card__image">
                       <?php if (has_post_thumbnail()) : ?>
+                        <!-- アイキャッチ画像がある場合 -->
                         <?php the_post_thumbnail('large', array('loading' => 'lazy', 'decoding' => 'async', 'alt' => get_the_title())); ?>
                       <?php else : ?>
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/news-column/news-column_01.webp'); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" width="317" height="195" loading="lazy" decoding="async">
+                        <!-- アイキャッチ画像がない場合の代替画像 -->
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/news-column/news-column_01.webp'); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="wp-post-image" loading="lazy" decoding="async">
                       <?php endif; ?>
                     </div>
                     <div class="c-column-card__body">
@@ -205,8 +210,6 @@
           </section>
           <?php wp_reset_postdata(); ?>
         <?php endif; ?>
-
-
       </div>
     </div>
   </div>
