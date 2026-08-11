@@ -60,6 +60,26 @@ add_action('wp_enqueue_scripts', 'my_script_init');
 
 
 /**
+ * 投稿タイプごとに異なるアーカイブの表示件数を指定
+ *
+ * 参考：https://webcreatetips.com/coding/152/
+ */
+function change_posts_per_page($query)
+{
+	if (is_admin() || ! $query->is_main_query()) {
+		return;
+	}
+	if ($query->is_post_type_archive('works')) {
+		$query->set('posts_per_page', 9);
+	}
+	if ($query->is_tax('case')) {
+		$query->set('posts_per_page', 9);
+	}
+}
+add_action('pre_get_posts', 'change_posts_per_page');
+
+
+/**
  * 管理メニューの「投稿」に関する表示を「NEWS（任意）」に変更
  *
  * 参考：https://wordpress-web.and-ha.com/change-management-screen-post/
