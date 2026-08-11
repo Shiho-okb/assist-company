@@ -93,16 +93,23 @@
             <?php endwhile; ?>
           </ol>
           <!-- ページネーション -->
-          <nav class="p-works__pagination">
-            <?php
-            the_posts_pagination(array(
-              'mid_size' => 1,
-              'prev_text' => '&lt;',
-              'next_text' => '&gt;',
-              'screen_reader_text' => '投稿ナビゲーション',
-            ));
-            ?>
-          </nav>
+          <?php global $wp_query; ?>
+          <?php if ($wp_query->max_num_pages > 1) : ?>
+            <nav class="p-works__pagination">
+              <div class="p-works__pagination-item c-pagination">
+                <?php
+                echo paginate_links(array(
+                  'total'     => $wp_query->max_num_pages,
+                  'current'   => max(1, get_query_var('paged')),
+                  'mid_size'  => 1,
+                  'end_size'  => 1,
+                  'prev_text' => '',
+                  'next_text' => '',
+                ));
+                ?>
+              </div>
+            </nav>
+          <?php endif; ?>
         <?php else : ?>
           <p>現在記事はありません</p>
         <?php endif; ?>
