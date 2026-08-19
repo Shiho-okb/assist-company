@@ -2,40 +2,33 @@
 
   <main>
     <!-- メインビジュアル -->
+    <?php
+    // ACF画像フィールドから動的にスライドを生成
+    $slides = array();
+    for ($i = 1; $i <= 6; $i++) {
+      $field_name = 'mv_slide_' . $i;
+      $img = get_field($field_name);
+      if ($img) {
+        $slides[] = $img;
+      }
+    }
+
+    // 画像が1枚以上の場合のみセクションを出力
+    if (!empty($slides)):
+    ?>
     <section class="p-mainvisual l-mainvisual">
       <div class="swiper p-mainvisual__swiper">
         <div class="swiper-wrapper">
-          <!-- スライド１ -->
+          <?php foreach ($slides as $idx => $img): ?>
+          <!-- スライド<?php echo $idx + 1; ?> -->
           <div class="p-mainvisual__slide swiper-slide">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/mv/mv_01.jpg'); ?>" alt="" width="904" height="500">
+            <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_attr($img['alt'] ?? ''); ?>" width="904" height="500">
           </div>
-          <!-- スライド２ -->
-          <div class="p-mainvisual__slide swiper-slide">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/mv/mv_02.jpg'); ?>" alt="" width="904" height="500">
-          </div>
-          <!-- スライド３ -->
-          <div class="p-mainvisual__slide swiper-slide">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/mv/mv_03.jpg'); ?>" alt="" width="904" height="500">
-          </div>
-          <!-- スライド４ -->
-          <div class="p-mainvisual__slide swiper-slide">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/mv/mv_04.jpg'); ?>" alt="" width="904" height="500">
-          </div>
-          <!-- スライド５ -->
-          <div class="p-mainvisual__slide swiper-slide">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/mv/mv_05.jpg'); ?>" alt="" width="904" height="500">
-          </div>
-          <!-- スライド６ -->
-          <div class="p-mainvisual__slide swiper-slide">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/mv/mv_06.jpg'); ?>" alt="" width="904" height="500">
-          </div>
-          <!-- スライド７ -->
-          <div class="p-mainvisual__slide swiper-slide">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/mv/mv_07.jpg'); ?>" alt="" width="904" height="500">
-          </div>
+          <?php endforeach; ?>
         </div>
       </div>
     </section>
+    <?php endif; ?>
 
     <!-- お知らせ -->
     <section class="p-top-news l-top-news">

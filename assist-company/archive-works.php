@@ -85,7 +85,13 @@
                       ?>
                         <span class="c-works-card__tag c-works-card__tag--black"><?php echo esc_html(implode(' / ', $case_names)); ?></span>
                       <?php endif; ?>
-                      <span class="c-works-card__tag c-works-card__tag--white">2025年</span>
+                      <!-- 竣工年月 -->
+                      <?php
+                      $year = get_field('completion_year');
+                      if ($year) :
+                        echo '<span class="c-works-card__tag c-works-card__tag--white">' . esc_html($year) . '年</span>';
+                      endif;
+                      ?>
                     </div>
                   </div>
                 </a>

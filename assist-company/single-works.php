@@ -54,68 +54,109 @@
               }
               ?>
             </span>
-            <span class="c-works-card__tag c-works-card__tag--white">
-              2024年
-            </span>
+            <!-- 竣工年月 -->
+            <?php
+            $year = get_field('completion_year');
+            if ($year) :
+              echo '<span class="c-works-card__tag c-works-card__tag--white">' . esc_html($year) . '年</span>';
+            endif;
+            ?>
           </div>
-          <!-- スワイパー -->
-          <!-- 次回カスタムフィールドで実装 -->
-          <div class="p-works-post__slider swiper">
-            <!-- メイン画像 -->
-            <div class="swiper-wrapper">
-              <div class="p-works-post__image swiper-slide">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/works-post/works-post_01main.webp'); ?>" alt="スカイタワー新橋" width="1000" height="560">
-              </div>
-              <div class="p-works-post__image swiper-slide">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/mv/mv_01.webp'); ?>" alt="施工事例" width="1000" height="560">
-              </div>
-              <div class="p-works-post__image swiper-slide">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/mv/mv_03.webp'); ?>" alt="施工事例" width="1000" height="560">
-              </div>
-              <div class="p-works-post__image swiper-slide">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/works-post/works-post_04.webp'); ?>" alt="施工事例" width="1000" height="560">
-              </div>
-            </div>
+          <!-- ギャラリー画像 -->
+          <?php
+          $images = array();
+          for ($i = 1; $i <= 4; $i++) {
+            $image = get_field('gallery_' . $i);
+            if (!empty($image) && is_array($image) && !empty($image['url'])) {
+              $images[] = array(
+                'url' => $image['url'],
+                'alt' => !empty($image['alt']) ? $image['alt'] : '',
+              );
+            }
+          }
 
-            <!-- 矢印 -->
-            <button class="p-works-post__arrow p-works-post__arrow--prev swiper-button-prev" aria-label="前へ"></button>
-            <button class="p-works-post__arrow p-works-post__arrow--next swiper-button-next" aria-label="次へ"></button>
-          </div>
-          <!-- サムネイル -->
-          <div class="p-works-post__thumbs swiper">
-            <div class="swiper-wrapper">
-              <div class="p-works-post__thumb swiper-slide">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/works-post/works-post_01.webp'); ?>" alt="スカイタワー新橋" width="235" height="132">
-              </div>
-              <div class="p-works-post__thumb swiper-slide">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/works-post/works-post_02.webp'); ?>" alt="施工事例" width="235" height="132">
-              </div>
-              <div class="p-works-post__thumb swiper-slide">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/works-post/works-post_03.webp'); ?>" alt="施工事例" width="235" height="132">
-              </div>
-              <div class="p-works-post__thumb swiper-slide">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/works-post/works-post_04.webp'); ?>" alt="施工事例" width="235" height="132">
-              </div>
-            </div>
-          </div>
-          <!-- 次回カスタムフィールドで実装 -->
+          if (!empty($images)) :
+            $gallery_count = count($images);
+            $gallery_class = 'gallery-' . $gallery_count;
+          ?>
+            <section class="p-works-post__gallery <?php echo esc_attr($gallery_class); ?>">
+              <?php if ($gallery_count === 1) : ?>
+                <div class="p-works-post__image">
+                  <img src="<?php echo esc_url($images[0]['url']); ?>" alt="<?php echo esc_attr($images[0]['alt']); ?>" width="1000" height="560">
+                </div>
+              <?php else : ?>
+                <div class="p-works-post__slider swiper">
+                  <div class="swiper-wrapper">
+                    <?php foreach ($images as $image) : ?>
+                      <div class="p-works-post__image swiper-slide">
+                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" width="1000" height="560">
+                      </div>
+                    <?php endforeach; ?>
+                  </div>
+
+                  <button class="p-works-post__arrow p-works-post__arrow--prev swiper-button-prev" aria-label="前へ"></button>
+                  <button class="p-works-post__arrow p-works-post__arrow--next swiper-button-next" aria-label="次へ"></button>
+                </div>
+
+                <div class="p-works-post__thumbs swiper">
+                  <div class="swiper-wrapper">
+                    <?php foreach ($images as $image) : ?>
+                      <div class="p-works-post__thumb swiper-slide">
+                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" width="235" height="132">
+                      </div>
+                    <?php endforeach; ?>
+                  </div>
+                </div>
+              <?php endif; ?>
+            </section>
+          <?php endif; ?>
+
+          <!-- 施設詳細 -->
           <dl class="p-works-post__data">
-            <div>
-              <dt>施設用途</dt>
-              <dd>オフィスビル</dd>
-            </div>
-            <div>
-              <dt>エリア</dt>
-              <dd>東京都港区</dd>
-            </div>
-            <div>
-              <dt>発注</dt>
-              <dd>アシスト不動産</dd>
-            </div>
-            <div>
-              <dt>竣工年月</dt>
-              <dd>2024年2月</dd>
-            </div>
+            <?php
+            // 施設用途
+            $purpose = get_field('purpose');
+            if ($purpose):
+            ?>
+              <div>
+                <dt>施設用途</dt>
+                <dd><?php echo esc_html($purpose); ?></dd>
+              </div>
+            <?php endif; ?>
+
+            <?php
+            // エリア
+            $area = get_field('area');
+            if ($area):
+            ?>
+              <div>
+                <dt>エリア</dt>
+                <dd><?php echo esc_html($area); ?></dd>
+              </div>
+            <?php endif; ?>
+
+            <?php
+            // 発注
+            $supplier = get_field('supplier');
+            if ($supplier):
+            ?>
+              <div>
+                <dt>発注</dt>
+                <dd><?php echo esc_html($supplier); ?></dd>
+              </div>
+            <?php endif; ?>
+
+            <?php
+            // 竣工年月
+            $completion_year = get_field('completion_year');
+            $completion_month = get_field('completion_month');
+            if ($completion_year || $completion_month):
+            ?>
+              <div>
+                <dt>竣工年月</dt>
+                <dd><?php echo esc_html($completion_year); ?>年<?php echo esc_html($completion_month); ?>月</dd>
+              </div>
+            <?php endif; ?>
           </dl>
           <div class="p-works-post__text">
             <?php the_content(); ?>
@@ -191,9 +232,15 @@
                           施工事例
                         </span>
                       <?php } ?>
-                      <span class="c-works-card__tag c-works-card__tag--white">
-                        2025年
-                      </span>
+                      <!-- 竣工年月 -->
+                      <?php
+                      $related_year = get_field('completion_year');
+                      if ($related_year) :
+                      ?>
+                        <span class="c-works-card__tag c-works-card__tag--white">
+                          <?php echo esc_html($related_year); ?>年
+                        </span>
+                      <?php endif; ?>
                     </div>
                     <p class="c-column-card__title">
                       <?php the_title(); ?>
