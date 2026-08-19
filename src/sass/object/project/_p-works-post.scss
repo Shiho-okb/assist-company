@@ -221,6 +221,32 @@
   }
 }
 
+.p-works-post__text ul {
+  list-style: disc;
+  list-style-position: inside;
+  margin-top: rem(20);
+}
+
+.p-works-post__text ol {
+  list-style: decimal;
+  list-style-position: inside;
+  margin-top: rem(20);
+}
+
+.p-works-post__text figure {
+  margin-top: rem(20);
+}
+
+.p-works-post__text a {
+  display: inline-block;
+  color: $blue;
+  text-decoration: underline;
+  margin-top: rem(16);
+  @include mq(md) {
+    margin-top: rem(12);
+  }
+}
+
 .p-works-post__btn {
   width: rem(300);
   margin: rem(50) auto 0;
