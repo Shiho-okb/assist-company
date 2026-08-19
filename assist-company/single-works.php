@@ -64,18 +64,19 @@
             <!-- メイン画像 -->
             <div class="swiper-wrapper">
               <div class="p-works-post__image swiper-slide">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/mv/mv_03.webp'); ?>" alt="施工事例" width="1000" height="560">
-              </div>
-              <div class="p-works-post__image swiper-slide">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/works-post/works-post_04.webp'); ?>" alt="施工事例" width="1000" height="560">
-              </div>
-              <div class="p-works-post__image swiper-slide">
                 <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/works-post/works-post_01main.webp'); ?>" alt="スカイタワー新橋" width="1000" height="560">
               </div>
               <div class="p-works-post__image swiper-slide">
                 <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/mv/mv_01.webp'); ?>" alt="施工事例" width="1000" height="560">
               </div>
+              <div class="p-works-post__image swiper-slide">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/mv/mv_03.webp'); ?>" alt="施工事例" width="1000" height="560">
+              </div>
+              <div class="p-works-post__image swiper-slide">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/works-post/works-post_04.webp'); ?>" alt="施工事例" width="1000" height="560">
+              </div>
             </div>
+
             <!-- 矢印 -->
             <button class="p-works-post__arrow p-works-post__arrow--prev swiper-button-prev" aria-label="前へ"></button>
             <button class="p-works-post__arrow p-works-post__arrow--next swiper-button-next" aria-label="次へ"></button>
