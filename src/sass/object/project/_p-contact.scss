@@ -290,3 +290,8 @@
     width: rem(120);
   }
 }
+
+/* Contact Form 7 の完了/エラーメッセージ出力欄を非表示にする */
+.wpcf7-response-output {
+  display: none !important;
+}
