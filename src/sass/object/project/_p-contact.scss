@@ -264,3 +264,29 @@
     height: rem(50);
   }
 }
+
+/* Contact Form 7用 ラップタグの幅崩れ防止 */
+.p-contact__row .wpcf7-form-control-wrap {
+  flex: 1;
+  width: 100%;
+}
+
+.p-contact__zip .wpcf7-form-control-wrap {
+  flex: none;
+  width: auto;
+}
+
+/* 郵便番号入力欄の幅を確実に保持 */
+.p-contact__zip .wpcf7-form-control-wrap:has(.p-contact__input--left) {
+  width: rem(110);
+  @include mq(md) {
+    width: rem(90);
+  }
+}
+
+.p-contact__zip .wpcf7-form-control-wrap:has(.p-contact__input--right) {
+  width: rem(158);
+  @include mq(md) {
+    width: rem(120);
+  }
+}
