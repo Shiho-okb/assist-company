@@ -12,9 +12,15 @@
 <body <?php body_class(); ?>>
   <?php wp_body_open(); ?>
   <header class="p-header l-header">
+    <?php if ( is_front_page() ) : ?>
     <h1>
       <a href="#" class="p-header__logo">CODO ASSIST</a>
     </h1>
+    <?php else : ?>
+    <div>
+      <a href="#" class="p-header__logo">CODO ASSIST</a>
+    </div>
+    <?php endif; ?>
     <button class="p-header__hamburger js-hamburger" aria-label="ハンバーガーボタン">
       <span></span>
       <span></span>
