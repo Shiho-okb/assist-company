@@ -24,7 +24,7 @@
     </div>
   </div>
 
-  <!-- お問い合わせ -->
+  <!-- お問い合わせフォーム -->
   <div class="p-contact">
     <div class="p-contact__inner l-inner">
       <div class="p-contact__wrapper">
@@ -45,29 +45,7 @@
   </div>
 
   <!-- 採用情報 -->
-  <section class="p-recruit-cta">
-    <div class="p-recruit-cta__inner l-inner">
-      <div class="p-recruit-cta__wrapper">
-        <div class="p-recruit-cta__head">
-          <h2 class="p-recruit-cta__title c-title c-title--white">
-            <span class="c-title__en">Recruit</span>
-            <span class="c-title__ja">採用情報</span>
-          </h2>
-        </div>
-        <div class="p-recruit-cta__content">
-          <p class="p-recruit-cta__catch">
-            私たちと未来を創造しませんか？
-          </p>
-          <div class="p-recruit-cta__btn">
-            <a href="./recruit.html" class="c-btn">
-              MORE
-              <span></span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <?php get_template_part('template-parts/cta-recruit'); ?>
 </main>
 
 <?php get_footer(); ?>
