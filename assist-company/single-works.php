@@ -14,23 +14,13 @@
   </div>
 
   <!-- パンくずリスト -->
-  <div class="p-works-breadcrumb c-breadcrumb">
+  <div class="p-news-breadcrumb c-breadcrumb">
     <div class="c-breadcrumb__inner l-inner">
-      <ol class="c-breadcrumb__list">
-        <li class="c-breadcrumb__item">
-          <a href="./index.html">
-            TOP
-          </a>
-        </li>
-        <li class="c-breadcrumb__item">
-          <a href="./news.html">
-            施工事例
-          </a>
-        </li>
-        <li class="c-breadcrumb__item">
-          スカイタワー新橋
-        </li>
-      </ol>
+      <div class="c-breadcrumb__list" typeof="BreadcrumbList" vocab="https://schema.org/">
+        <?php if (function_exists('bcn_display')) {
+          bcn_display();
+        } ?>
+      </div>
     </div>
   </div>
 
