@@ -1,16 +1,18 @@
 <?php
+
 /**
  * Functions
  */
 /**
  * WordPress標準機能
-  *
+ *
  * @codex https://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/add_theme_support
  */
-function my_setup() {
-	add_theme_support( 'post-thumbnails' ); /* アイキャッチ */
-	add_theme_support( 'automatic-feed-links' ); /* RSSフィード */
-	add_theme_support( 'title-tag' ); /* タイトルタグ自動生成 */
+function my_setup()
+{
+	add_theme_support('post-thumbnails'); /* アイキャッチ */
+	add_theme_support('automatic-feed-links'); /* RSSフィード */
+	add_theme_support('title-tag'); /* タイトルタグ自動生成 */
 	add_theme_support(
 		'html5',
 		array( /* HTML5のタグで出力 */
@@ -22,16 +24,17 @@ function my_setup() {
 		)
 	);
 }
-add_action( 'after_setup_theme', 'my_setup' );
+add_action('after_setup_theme', 'my_setup');
 
 /**
  * CSSとJavaScriptの読み込み
  *
  */
-function my_script_init(){
+function my_script_init()
+{
 	// バージョン管理（キャッシュ対策：ファイルの更新日時を使用）+minファイルがあればそれを使用、なければ通常のファイルを使用
-	$css_file = get_template_directory() . ( file_exists(get_template_directory() . '/assets/css/styles.min.css') ? '/assets/css/styles.min.css' : '/assets/css/styles.css' );
-	$js_file  = get_template_directory() . ( file_exists(get_template_directory() . '/assets/js/script.min.js')  ? '/assets/js/script.min.js'  : '/assets/js/script.js' );
+	$css_file = get_template_directory() . (file_exists(get_template_directory() . '/assets/css/styles.min.css') ? '/assets/css/styles.min.css' : '/assets/css/styles.css');
+	$js_file  = get_template_directory() . (file_exists(get_template_directory() . '/assets/js/script.min.js')  ? '/assets/js/script.min.js'  : '/assets/js/script.js');
 	$css_version = file_exists($css_file) ? filemtime($css_file) : '1.0.0';
 	$js_version  = file_exists($js_file)  ? filemtime($js_file)  : '1.0.0';
 	$css_rel = str_replace(get_template_directory(), '', $css_file);
@@ -39,7 +42,8 @@ function my_script_init(){
 
 
 	// jQueryの読み込み
-	wp_deregister_script('jquery');  wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js', array(), '3.7.1', true);
+	wp_deregister_script('jquery');
+	wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js', array(), '3.7.1', true);
 
 	// Swiper CSS 8.3.2
 	wp_enqueue_style('swiper-8.3.2', get_template_directory_uri() . '/assets/css/swiper-bundle.min.css', array(), '8.3.2', 'all');
@@ -117,3 +121,25 @@ add_action('pre_get_posts', 'change_posts_per_page');
 // }
 // add_action('init', 'change_post_object_label');
 // add_action('admin_menu', 'change_post_menu_label');
+
+
+/**
+ * Contact Form 7 : フォーム送信完了後にサンクスページへリダイレクト
+ */
+function contact_form_redirect_script()
+{
+	if (is_page('contact')) {
+?>
+		<script>
+			document.addEventListener('wpcf7mailsent', function(event) {
+				if ('6' == event.detail.contactFormId) {
+					setTimeout(function() {
+						window.location.href = '<?php echo home_url('/thanks/'); ?>';
+					}, 500);
+				}
+			}, false);
+		</script>
+<?php
+	}
+}
+add_action('wp_footer', 'contact_form_redirect_script');

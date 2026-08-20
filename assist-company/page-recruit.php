@@ -14,7 +14,7 @@
   </div>
 
   <!-- パンくずリスト -->
-  <div class="p-news-breadcrumb c-breadcrumb">
+  <div class="p-recruit-breadcrumb c-breadcrumb">
     <div class="c-breadcrumb__inner l-inner">
       <div class="c-breadcrumb__list" typeof="BreadcrumbList" vocab="https://schema.org/">
         <?php if (function_exists('bcn_display')) {
