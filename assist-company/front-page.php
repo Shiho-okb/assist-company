@@ -1,261 +1,273 @@
 <?php get_header(); ?>
 
-  <main>
-    <!-- メインビジュアル -->
-    <?php
-    // ACF画像フィールドから動的にスライドを生成
-    $slides = array();
-    for ($i = 1; $i <= 6; $i++) {
-      $field_name = 'mv_slide_' . $i;
-      $img = get_field($field_name);
-      if ($img) {
-        $slides[] = $img;
-      }
+<main>
+  <!-- メインビジュアル -->
+  <?php
+  // ACF画像フィールドから動的にスライドを生成
+  $slides = array();
+  for ($i = 1; $i <= 6; $i++) {
+    $field_name = 'mv_slide_' . $i;
+    $img = get_field($field_name);
+    if ($img) {
+      $slides[] = $img;
     }
+  }
 
-    // 画像が1枚以上の場合のみセクションを出力
-    if (!empty($slides)):
-    ?>
+  // 画像が1枚以上の場合のみセクションを出力
+  if (!empty($slides)):
+  ?>
     <section class="p-mainvisual l-mainvisual">
       <div class="swiper p-mainvisual__swiper">
         <div class="swiper-wrapper">
           <?php foreach ($slides as $idx => $img): ?>
-          <!-- スライド<?php echo $idx + 1; ?> -->
-          <div class="p-mainvisual__slide swiper-slide">
-            <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_attr($img['alt'] ?? ''); ?>" width="904" height="500">
-          </div>
+            <!-- スライド<?php echo $idx + 1; ?> -->
+            <div class="p-mainvisual__slide swiper-slide">
+              <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_attr($img['alt'] ?? ''); ?>" width="904" height="500">
+            </div>
           <?php endforeach; ?>
         </div>
       </div>
     </section>
-    <?php endif; ?>
+  <?php endif; ?>
 
-    <!-- お知らせ -->
-    <section class="p-top-news l-top-news">
-      <div class="p-top-news__inner l-inner">
-        <div class="p-top-news__wrapper">
-          <div class="p-top-news__content">
-            <h2 class="p-top-news__title c-title">
-              <span class="c-title__en">News</span>
-              <span class="c-title__ja">お知らせ</span>
-            </h2>
-            <ol class="p-top-news__cards">
-              <li class="p-top-news__card c-news-card">
-                <a href="#" class="c-news-card__item">
-                  <span class="c-news-card__category c-news-card__category--blog">
-                    ブログ
-                  </span>
-                  <time class="c-news-card__date" datetime="2026-01-01">
-                    2026.01.01
-                  </time>
-                  <p class="c-news-card__title">
-                    あけましておめでとうございます
-                  </p>
-                </a>
-              </li>
-              <li class="p-top-news__card c-news-card">
-                <a href="#" class="c-news-card__item">
-                  <span class="c-news-card__category c-news-card__category--recruit">
-                    採用
-                  </span>
-                  <time class="c-news-card__date" datetime="2025-12-18">
-                    2025.12.18
-                  </time>
-                  <p class="c-news-card__title">
-                    2027年度採用エントリーについて
-                  </p>
-                </a>
-              </li>
-              <li class="p-top-news__card c-news-card">
-                <a href="#" class="c-news-card__item">
-                  <span class="c-news-card__category c-news-card__category--news">
-                    News
-                  </span>
-                  <time class="c-news-card__date" datetime="2025-12-14">
-                    2025.12.14
-                  </time>
-                  <p class="c-news-card__title">
-                    TVCMが放映されます
-                  </p>
-                </a>
-              </li>
-            </ol>
-          </div>
-          <div class="p-top-news__btn">
-            <a href="./news.html" class="c-btn">
-              MORE
-              <span></span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 施工事例 -->
-    <section class="p-top-works l-top-works">
-      <div class="p-top-works__inner l-inner">
-        <div class="p-top-works__wrapper">
-          <h2 class="p-top-works__title c-title">
-            <span class="c-title__en">Works</span>
-            <span class="c-title__ja">施工事例</span>
+  <!-- お知らせ -->
+  <section class="p-top-news l-top-news">
+    <div class="p-top-news__inner l-inner">
+      <div class="p-top-news__wrapper">
+        <div class="p-top-news__content">
+          <h2 class="p-top-news__title c-title">
+            <span class="c-title__en">News</span>
+            <span class="c-title__ja">お知らせ</span>
           </h2>
-          <ol class="p-top-works__cards">
-            <!-- card -->
-            <li class="p-top-works__card c-works-card">
-              <a href="#" class="c-works-card__item">
-                <div class="c-works-card__image">
-                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/works/works_01.webp'); ?>" alt="スカイタワー新橋" width="317" height="195" loading="lazy" decoding="async">
-                </div>
-                <div class="c-works-card__body">
-                  <h3 class="c-works-card__title">
-                    スカイタワー新橋
-                  </h3>
-                  <p class="c-works-card__text">
-                    近年急速に都市機能の更新が進むビジネスエリア「新橋」で企画・設計・施工を手掛けた自社開発物件で、駅から徒歩9分の好立地に位置する高規格な賃貸
-                  </p>
-                  <div class="c-works-card__tags">
-                    <span class="c-works-card__tag c-works-card__tag--black c-works-card__tag--office">
-                      オフィスビル
+          <ol class="p-top-news__cards">
+            <?php
+            $news_query = new WP_Query(array(
+              'post_type'      => 'post',
+              'posts_per_page' => 3,
+              'orderby'        => 'date',
+              'order'          => 'DESC',
+            ));
+
+            if ($news_query->have_posts()):
+              while ($news_query->have_posts()): $news_query->the_post();
+
+                // 投稿のカテゴリーを取得
+                $post_categories = get_the_category();
+
+                // デフォルト値（News）の設定
+                $category_label = 'News';
+                $category_class = 'c-news-card__category--news';
+
+                // カテゴリースラッグに応じて設定
+                if (! empty($post_categories)) {
+                  foreach ($post_categories as $post_category) {
+                    $category_slug = $post_category->slug;
+
+                    if ('uncategorized' === $category_slug) {
+                      continue;
+                    }
+
+                    if ('news-info' === $category_slug || 'news' === $category_slug) {
+                      // Newsの場合
+                      $category_label = 'News';
+                      $category_class = 'c-news-card__category--news';
+                      break;
+                    } elseif ('recruit-info' === $category_slug || 'recruit' === $category_slug) {
+                      // 採用の場合
+                      $category_label = '採用';
+                      $category_class = 'c-news-card__category--recruit';
+                      break;
+                    } elseif ('blog' === $category_slug || 'blog-info' === $category_slug) {
+                      // ブログの場合
+                      $category_label = 'ブログ';
+                      $category_class = 'c-news-card__category--blog';
+                      break;
+                    } else {
+                      // その他カテゴリー
+                      $category_label = $post_category->name;
+                      $category_class = 'c-news-card__category--' . $category_slug;
+                      break;
+                    }
+                  }
+                }
+            ?>
+                <li class="p-top-news__card c-news-card">
+                  <a href="<?php the_permalink(); ?>" class="c-news-card__item">
+                    <span class="c-news-card__category <?php echo esc_attr($category_class); ?>">
+                      <?php echo esc_html($category_label); ?>
                     </span>
-                    <span class="c-works-card__tag c-works-card__tag--white">
-                      2025年
-                    </span>
-                  </div>
-                </div>
-              </a>
-            </li>
-            <!-- card -->
-            <li class="p-top-works__card c-works-card">
-              <a href="#" class="c-works-card__item">
-                <div class="c-works-card__image">
-                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/works/works_02.webp'); ?>" alt="梅田ビルスクエア" width="317" height="195" loading="lazy" decoding="async">
-                </div>
-                <div class="c-works-card__body">
-                  <h3 class="c-works-card__title">
-                    梅田ビルスクエア
-                  </h3>
-                  <p class="c-works-card__text">
-                    メインストリートに面して立地する、1階が店舗、2～13階が事務所となる賃貸床面積約3,230坪の賃貸オフィスビルであり、事業企画・設計・施工による自社
-                  </p>
-                  <div class="c-works-card__tags">
-                    <span class="c-works-card__tag c-works-card__tag--black c-works-card__tag--office">
-                      オフィスビル
-                    </span>
-                    <span class="c-works-card__tag c-works-card__tag--white">
-                      2025年
-                    </span>
-                  </div>
-                </div>
-              </a>
-            </li>
-            <!-- card -->
-            <li class="p-top-works__card c-works-card">
-              <a href="#" class="c-works-card__item">
-                <div class="c-works-card__image">
-                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/works/works_03.webp'); ?>" alt="栄市立院 本館北タワー" width="317" height="195" loading="lazy" decoding="async">
-                </div>
-                <div class="c-works-card__body">
-                  <h3 class="c-works-card__title">
-                    栄市立院 本館北タワー
-                  </h3>
-                  <p class="c-works-card__text">
-                    地域の精神科医療の中核を担う大規模病院（総461床）における増築建物である。対象である児童思春期病棟・外来棟は、中学生までの患者が対象であることから、
-                  </p>
-                  <div class="c-works-card__tags">
-                    <span class="c-works-card__tag c-works-card__tag--black">
-                      福祉施設
-                    </span>
-                    <span class="c-works-card__tag c-works-card__tag--white">
-                      2024年
-                    </span>
-                  </div>
-                </div>
-              </a>
-            </li>
+                    <time class="c-news-card__date" datetime="<?php the_time('Y-m-d'); ?>">
+                      <?php the_time('Y.m.d'); ?>
+                    </time>
+                    <p class="c-news-card__title">
+                      <?php the_title(); ?>
+                    </p>
+                  </a>
+                </li>
+              <?php endwhile;
+            else: ?>
+              <p>お知らせはありません</p>
+            <?php
+            endif;
+            wp_reset_postdata();
+            ?>
           </ol>
-          <div class="p-top-works__btn">
-            <a href="./works.html" class="c-btn">
-              MORE
-              <span></span>
-            </a>
-          </div>
+        </div>
+        <div class="p-top-news__btn">
+          <a href="./news.html" class="c-btn">
+            MORE
+            <span></span>
+          </a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- 我々について -->
-    <section class="p-company p-company--top">
-      <div class="p-company__inner l-inner">
-        <div class="p-company__wrapper">
-          <h2 class="p-company__title c-title c-title--white">
-            <span class="c-title__en">Company</span>
-            <span class="c-title__ja">我々について</span>
+  <!-- 施工事例 -->
+  <section class="p-top-works l-top-works">
+    <div class="p-top-works__inner l-inner">
+      <div class="p-top-works__wrapper">
+        <h2 class="p-top-works__title c-title">
+          <span class="c-title__en">Works</span>
+          <span class="c-title__ja">施工事例</span>
+        </h2>
+        <ol class="p-top-works__cards">
+          <?php
+          $args = array(
+            'post_type' => 'works',
+            'posts_per_page' => 3,
+            'orderby' => 'date',
+            'order' => 'DESC',
+          );
+          $works_query = new WP_Query($args);
+
+          if ($works_query->have_posts()) :
+            while ($works_query->have_posts()) : $works_query->the_post();
+          ?>
+              <li class="p-top-works__card c-works-card">
+                <a href="<?php the_permalink(); ?>" class="c-works-card__item">
+                  <div class="c-works-card__image">
+                    <?php if (has_post_thumbnail()) {
+                      the_post_thumbnail('medium');
+                    } ?>
+                  </div>
+                  <div class="c-works-card__body">
+                    <h3 class="c-works-card__title"><?php the_title(); ?></h3>
+                    <p class="c-works-card__text">
+                      <?php
+                      $excerpt = get_the_excerpt();
+                      echo esc_html(mb_substr($excerpt, 0, 78));
+                      ?>
+                    </p>
+                    <div class="c-works-card__tags">
+                      <?php
+                      $terms = get_the_terms(get_the_ID(), 'case');
+                      if (! empty($terms) && ! is_wp_error($terms)) {
+                        $first_term = $terms[0];
+                        echo '<span class="c-works-card__tag c-works-card__tag--black">' . esc_html($first_term->name) . '</span>';
+                      }
+                      $completion = get_field('completion_year');
+                      if ($completion) {
+                        echo '<span class="c-works-card__tag c-works-card__tag--white">' . esc_html($completion) . '年</span>';
+                      }
+                      ?>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            <?php
+            endwhile;
+          else :
+            ?>
+            <p>Coming Soon</p>
+          <?php
+          endif;
+          wp_reset_postdata();
+          ?>
+        </ol>
+        <div class="p-top-works__btn">
+          <a href="./works.html" class="c-btn">
+            MORE
+            <span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 我々について -->
+  <section class="p-company p-company--top">
+    <div class="p-company__inner l-inner">
+      <div class="p-company__wrapper">
+        <h2 class="p-company__title c-title c-title--white">
+          <span class="c-title__en">Company</span>
+          <span class="c-title__ja">我々について</span>
+        </h2>
+        <div class="p-company__content">
+          <p class="p-company__heading">
+            世界を「アッ！」と驚かせる<br>
+            当たり前を
+          </p>
+          <p class="p-company__text">
+            <span>それが、私たちの目指すもの。</span>
+            <span>建築・土木という仕事の先にあるものを考える。</span>
+            <span>お客様の笑顔を思い浮かべながら、</span>
+            <span>ふとした場面で生まれる「アッ！」を大切に、</span>
+            <span>記憶に残る空気をつくっていきます。</span>
+          </p>
+        </div>
+        <div class="p-company__btn">
+          <a href="./company.html" class="c-btn c-btn--white">
+            MORE
+            <span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 採用情報 -->
+  <section class="p-recruit-cta">
+    <div class="p-recruit-cta__inner l-inner">
+      <div class="p-recruit-cta__wrapper">
+        <div class="p-recruit-cta__head">
+          <h2 class="p-recruit-cta__title c-title c-title--white">
+            <span class="c-title__en">Recruit</span>
+            <span class="c-title__ja">採用情報</span>
           </h2>
-          <div class="p-company__content">
-            <p class="p-company__heading">
-              世界を「アッ！」と驚かせる<br>
-              当たり前を
-            </p>
-            <p class="p-company__text">
-              <span>それが、私たちの目指すもの。</span>
-              <span>建築・土木という仕事の先にあるものを考える。</span>
-              <span>お客様の笑顔を思い浮かべながら、</span>
-              <span>ふとした場面で生まれる「アッ！」を大切に、</span>
-              <span>記憶に残る空気をつくっていきます。</span>
-            </p>
-          </div>
-          <div class="p-company__btn">
-            <a href="./company.html" class="c-btn c-btn--white">
+        </div>
+        <div class="p-recruit-cta__content">
+          <p class="p-recruit-cta__catch">
+            私たちと未来を創造しませんか？
+          </p>
+          <div class="p-recruit-cta__btn">
+            <a href="./recruit.html" class="c-btn">
               MORE
               <span></span>
             </a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- 採用情報 -->
-    <section class="p-recruit-cta">
-      <div class="p-recruit-cta__inner l-inner">
-        <div class="p-recruit-cta__wrapper">
-          <div class="p-recruit-cta__head">
-            <h2 class="p-recruit-cta__title c-title c-title--white">
-              <span class="c-title__en">Recruit</span>
-              <span class="c-title__ja">採用情報</span>
-            </h2>
-          </div>
-          <div class="p-recruit-cta__content">
-            <p class="p-recruit-cta__catch">
-              私たちと未来を創造しませんか？
-            </p>
-            <div class="p-recruit-cta__btn">
-              <a href="./recruit.html" class="c-btn">
-                MORE
-                <span></span>
-              </a>
-            </div>
-          </div>
+  <!-- お問い合わせ -->
+  <section class="p-contact-cta">
+    <div class="p-contact-cta__inner l-inner">
+      <div class="p-contact-cta__wrapper">
+        <h2 class="p-contact-cta__title c-title">
+          <span class="c-title__en">Contact</span>
+          <span class="c-title__ja">お問い合わせ</span>
+        </h2>
+        <div class="p-contact-cta__btn">
+          <a href="./contact.html" class="c-btn">
+            MORE
+            <span></span>
+          </a>
         </div>
       </div>
-    </section>
-
-    <!-- お問い合わせ -->
-    <section class="p-contact-cta">
-      <div class="p-contact-cta__inner l-inner">
-        <div class="p-contact-cta__wrapper">
-          <h2 class="p-contact-cta__title c-title">
-            <span class="c-title__en">Contact</span>
-            <span class="c-title__ja">お問い合わせ</span>
-          </h2>
-          <div class="p-contact-cta__btn">
-            <a href="./contact.html" class="c-btn">
-              MORE
-              <span></span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+    </div>
+  </section>
+</main>
 
 <?php get_footer(); ?>
