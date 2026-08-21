@@ -45,17 +45,17 @@
 }
 
 .p-works-post__tags .c-works-card__tag {
-  min-height: rem(25);
-  width: rem(80);
+  padding: rem(5) rem(13);
   @include mq(md) {
-    width: rem(72);
+    padding: rem(4.5) rem(10);
+
   }
 }
 
 .p-works-post__tags .c-works-card__tag--office {
-  width: rem(100);
+  padding: rem(5) rem(6.5);
   @include mq(md) {
-    width: rem(90);
+    padding: rem(4.5) rem(10);
   }
 }
 
