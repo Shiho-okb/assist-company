@@ -73,12 +73,21 @@
                     <h2 class="c-works-card__title"><?php the_title(); ?></h2>
                     <p class="c-works-card__text"><?php echo esc_html(wp_trim_words(get_the_excerpt(), 30, '...')); ?></p>
                     <div class="c-works-card__tags">
+                      <!-- カテゴリー -->
                       <?php
                       $cases = get_the_terms(get_the_ID(), 'case');
+
                       if ($cases && ! is_wp_error($cases)) :
                         $case_names = wp_list_pluck($cases, 'name');
+                        $case_slugs = wp_list_pluck($cases, 'slug');
+
+                        // オフィスビルが含まれているか判定（名前：オフィスビル）
+                        $is_office = in_array('オフィスビル', $case_names, true);
+                        $tag_class = $is_office ? ' c-works-card__tag--office' : '';
                       ?>
-                        <span class="c-works-card__tag c-works-card__tag--black"><?php echo esc_html(implode(' / ', $case_names)); ?></span>
+                        <span class="c-works-card__tag c-works-card__tag--black<?php echo esc_attr($tag_class); ?>">
+                          <?php echo esc_html(implode(' / ', $case_names)); ?>
+                        </span>
                       <?php endif; ?>
                       <!-- 竣工年月 -->
                       <?php

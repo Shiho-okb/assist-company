@@ -33,16 +33,26 @@
             <?php the_title(); ?>
           </h1>
           <div class="p-works-post__tags c-works-card__tags">
-            <span class="c-works-card__tag c-works-card__tag--black c-works-card__tag--office">
-              <?php
-              $terms = get_the_terms(get_the_ID(), 'case');
-              if (!empty($terms) && !is_wp_error($terms)) {
-                $term = $terms[0];
-                echo esc_html($term->name);
-              } else {
-                echo '施工事例';
+            <!-- カテゴリー -->
+            <?php
+            $terms = get_the_terms(get_the_ID(), 'case');
+            $tag_class = '';
+
+            if (!empty($terms) && !is_wp_error($terms)) {
+              $term = $terms[0];
+              $term_name = $term->name;
+
+              // 名前がオフィスビルの場合にクラスを追加
+              if ($term_name === 'オフィスビル') {
+                $tag_class = ' c-works-card__tag--office';
               }
-              ?>
+            } else {
+              $term_name = '施工事例';
+            }
+            ?>
+
+            <span class="c-works-card__tag c-works-card__tag--black<?php echo esc_attr($tag_class); ?>">
+              <?php echo esc_html($term_name); ?>
             </span>
             <!-- 竣工年月 -->
             <?php
