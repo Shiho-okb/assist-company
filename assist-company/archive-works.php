@@ -29,33 +29,46 @@
     <div class="p-works__inner l-inner">
       <div class="p-works__wrapper">
         <!-- カテゴリー -->
-        <nav class="p-works__nav">
-          <ul class="p-works__tabs c-tabs">
-            <?php
-            // 『すべて』タブ（投稿タイプのアーカイブへのリンク）
-            $all_link = esc_url(home_url('/works/'));
-            $all_active = ! is_tax('case') ? 'is-active' : '';
-            ?>
-            <li class="<?php echo $all_active; ?>"><a href="<?php echo $all_link; ?>">すべて</a></li>
-            <?php
-            // タクソノミー 'case' のタームを取得（投稿が1件以上あるもののみ）
-            $terms = get_terms(array(
-              'taxonomy' => 'case',
-              'hide_empty' => true,
-            ));
-            $current_term = is_tax('case') ? get_queried_object() : null;
-            if (! is_wp_error($terms) && ! empty($terms)) :
-              foreach ($terms as $term) :
-                $term_link = esc_url(get_term_link($term));
-                $active = ($current_term && $current_term->term_id === $term->term_id) ? 'is-active' : '';
-            ?>
-                <li class="<?php echo $active; ?>"><a href="<?php echo $term_link; ?>"><?php echo esc_html($term->name); ?></a></li>
-            <?php
-              endforeach;
-            endif;
-            ?>
-          </ul>
-        </nav>
+        <?php
+        // 施工事例 (works) の公開投稿が存在するか確認
+        $has_works_posts = ! empty(get_posts(array(
+          'post_type'      => 'works',
+          'posts_per_page' => 1,
+          'post_status'   => 'publish',
+          'fields'        => 'ids',
+        )));
+
+        // 投稿が1件以上ある場合のみナビゲーション全体を出力
+        if ($has_works_posts) :
+        ?>
+          <nav class="p-works__nav">
+            <ul class="p-works__tabs c-tabs">
+              <?php
+              // 『すべて』タブ（投稿タイプのアーカイブへのリンク）
+              $all_link = esc_url(home_url('/works/'));
+              $all_active = ! is_tax('case') ? 'is-active' : '';
+              ?>
+              <li class="<?php echo $all_active; ?>"><a href="<?php echo $all_link; ?>">すべて</a></li>
+              <?php
+              // タクソノミー 'case' のタームを取得（投稿が1件以上あるもののみ）
+              $terms = get_terms(array(
+                'taxonomy'   => 'case',
+                'hide_empty' => true,
+              ));
+              $current_term = is_tax('case') ? get_queried_object() : null;
+              if (! is_wp_error($terms) && ! empty($terms)) :
+                foreach ($terms as $term) :
+                  $term_link = esc_url(get_term_link($term));
+                  $active = ($current_term && $current_term->term_id === $term->term_id) ? 'is-active' : '';
+              ?>
+                  <li class="<?php echo $active; ?>"><a href="<?php echo $term_link; ?>"><?php echo esc_html($term->name); ?></a></li>
+              <?php
+                endforeach;
+              endif;
+              ?>
+            </ul>
+          </nav>
+        <?php endif; ?>
         <!-- 施行事例リスト -->
         <?php if (have_posts()) : ?>
           <ol class="p-works__cards">
