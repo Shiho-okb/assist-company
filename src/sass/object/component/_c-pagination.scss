@@ -14,19 +14,30 @@
   font-size: rem(18);
   font-weight: 700;
   color: #6A6A6A;
-  padding: rem(5) rem(9);
+  padding: rem(5) rem(13);
   @include mq(md) {
     font-size: rem(14);
-    padding: rem(4) rem(6);
+    padding: rem(4) rem(8);
   }
 }
 
 .c-pagination .current {
   color: $red;
-  text-decoration: underline;
-  text-underline-offset: rem(4);
-  @include mq(md) {
-    text-underline-offset: rem(3);
+  text-decoration: none;
+  position: relative;
+}
+
+.c-pagination .current::after {
+  content: "";
+    position: absolute;
+    left: rem(10);
+    right: rem(10);
+    bottom: 0;
+    height: rem(2);
+    background-color: $red;
+    @include mq(md) {
+    left: rem(7);
+    right: rem(7);
   }
 }
 
