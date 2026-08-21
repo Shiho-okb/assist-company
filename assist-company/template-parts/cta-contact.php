@@ -7,7 +7,7 @@
         <span class="c-title__ja">お問い合わせ</span>
       </h2>
       <div class="p-contact-cta__btn">
-        <a href="./contact.html" class="c-btn">
+        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c-btn">
           MORE
           <span></span>
         </a>

@@ -13,7 +13,7 @@
           私たちと未来を創造しませんか？
         </p>
         <div class="p-recruit-cta__btn">
-          <a href="./recruit.html" class="c-btn">
+          <a href="<?php echo esc_url(home_url('/recruit/')); ?>" class="c-btn">
             MORE
             <span></span>
           </a>

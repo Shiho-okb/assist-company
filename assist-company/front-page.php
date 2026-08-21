@@ -114,7 +114,7 @@
           </ol>
         </div>
         <div class="p-top-news__btn">
-          <a href="./news.html" class="c-btn">
+          <a href="<?php echo esc_url(get_post_type_archive_link('post')); ?>" class="c-btn">
             MORE
             <span></span>
           </a>
@@ -190,7 +190,7 @@
           ?>
         </ol>
         <div class="p-top-works__btn">
-          <a href="./works.html" class="c-btn">
+          <a href="<?php echo esc_url(get_post_type_archive_link('works')); ?>" class="c-btn">
             MORE
             <span></span>
           </a>
@@ -221,7 +221,7 @@
           </p>
         </div>
         <div class="p-company__btn">
-          <a href="./company.html" class="c-btn c-btn--white">
+          <a href="<?php echo esc_url(home_url('/company/')); ?>" class="c-btn c-btn--white">
             MORE
             <span></span>
           </a>

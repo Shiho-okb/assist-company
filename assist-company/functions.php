@@ -43,7 +43,7 @@ function my_script_init()
 
 	// jQueryの読み込み
 	wp_deregister_script('jquery');
-	wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js', array(), '3.7.1', true);
+	wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js', array(), '3.7.1', false);
 
 	// Swiper CSS 8.3.2
 	wp_enqueue_style('swiper-8.3.2', get_template_directory_uri() . '/assets/css/swiper-bundle.min.css', array(), '8.3.2', 'all');
