@@ -39,8 +39,10 @@
 .p-works-post__tags {
   gap: rem(12);
   margin-top: rem(20);
+  margin-bottom: rem(40);
   @include mq(md) {
     margin-top: rem(13);
+    margin-bottom: rem(30);
   }
 }
 
