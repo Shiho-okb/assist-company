@@ -149,3 +149,28 @@ function contact_form_redirect_script()
 	}
 }
 add_action('wp_footer', 'contact_form_redirect_script');
+
+
+/**
+ * WordPressのバージョン情報を非表示（<head>内の generator タグを削除）
+ */
+remove_action('wp_head', 'wp_generator');
+
+
+/*
+ *ダッシュボード（管理画面）の整理
+ */
+
+//管理画面のサイドメニューから「コメント」を非表示
+function remove_comment_admin_menu()
+{
+	remove_menu_page('edit-comments.php');
+}
+add_action('admin_menu', 'remove_comment_admin_menu');
+
+//上部の管理バー（ツールバー）からも「コメント」を非表示
+function remove_comment_admin_bar($wp_admin_bar)
+{
+	$wp_admin_bar->remove_node('comments');
+}
+add_action('admin_bar_menu', 'remove_comment_admin_bar', 999);

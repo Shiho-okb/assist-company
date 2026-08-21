@@ -3,7 +3,6 @@
 .c-page-header {
   position: relative;
   height: rem(300);
-  // background-image: url(../images/news/news_header.webp);
   background-size: cover;
   background-position: center;
   @include mq(md) {
