@@ -128,7 +128,7 @@
             <h2 class="p-news-post__related-title c-line-title">
               <span>関</span>連記事
             </h2>
-            <ul class="p-news-post__cards">
+            <ol class="p-news-post__cards">
               <?php while ($related_query->have_posts()) : $related_query->the_post(); ?>
                 <?php
                 // 関連記事のカテゴリー判定
@@ -196,7 +196,7 @@
                   </a>
                 </li>
               <?php endwhile; ?>
-            </ul>
+            </ol>
           </section>
           <?php wp_reset_postdata(); ?>
         <?php endif; ?>

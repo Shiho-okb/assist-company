@@ -183,7 +183,7 @@
               <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/recruit/recruit_02.webp'); ?>" alt="打ち合わせ風景" width="316" height="380" loading="lazy">
             </div>
             <div class="p-recruit__image p-recruit__image--right">
-              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/recruit/recruit_03.webp'); ?>" alt="現場管理" width="316" height="380" loading="lazy">
+              <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/recruit/recruit_03.webp'); ?>" alt="施工スタッフが斜め上を見上げる様子" width="316" height="380" loading="lazy">
             </div>
           </div>
         </div>

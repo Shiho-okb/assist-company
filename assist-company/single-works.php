@@ -205,7 +205,7 @@
             <h2 class="p-works-post__related-title c-line-title">
               <span>関</span>連記事
             </h2>
-            <ul class="p-works-post__cards">
+            <ol class="p-works-post__cards">
               <?php while ($related_query->have_posts()) : $related_query->the_post(); ?>
                 <li class="p-works-post__card c-column-card">
                   <a href="<?php the_permalink(); ?>" class="c-column-card__item">
@@ -248,7 +248,7 @@
                   </a>
                 </li>
               <?php endwhile; ?>
-            </ul>
+            </ol>
           </section>
         <?php endif; ?>
         <?php wp_reset_postdata(); ?>

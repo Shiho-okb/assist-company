@@ -55,10 +55,16 @@ function my_script_init()
 	wp_enqueue_style('custom-style', get_template_directory_uri() . $css_rel, array(), $css_version, 'all');
 
 	// Swiper JS 8.3.2
-	wp_enqueue_script('swiper-8.3.2', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', array(), '8.3.2', true);
+	wp_enqueue_script('swiper-8.3.2', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', array(), '8.3.2', array(
+		'in_footer' => true,
+		'strategy'  => 'defer',
+	));
 
 	// カスタムJS
-	wp_enqueue_script('custom', get_template_directory_uri() . $js_rel, array('jquery'), $js_version, true);
+	wp_enqueue_script('custom', get_template_directory_uri() . $js_rel, array('jquery'), $js_version, array(
+		'in_footer' => true,
+		'strategy'  => 'defer',
+	));
 }
 add_action('wp_enqueue_scripts', 'my_script_init');
 
