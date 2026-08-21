@@ -161,11 +161,15 @@
                     </p>
                     <div class="c-works-card__tags">
                       <?php
+                      // カテゴリー
                       $terms = get_the_terms(get_the_ID(), 'case');
                       if (! empty($terms) && ! is_wp_error($terms)) {
                         $first_term = $terms[0];
-                        echo '<span class="c-works-card__tag c-works-card__tag--black">' . esc_html($first_term->name) . '</span>';
+                        // オフィスビルの場合のみクラスを追加
+                        $tag_class = ($first_term->name === 'オフィスビル') ? ' c-works-card__tag--office' : '';
+                        echo '<span class="c-works-card__tag c-works-card__tag--black' . esc_attr($tag_class) . '">' . esc_html($first_term->name) . '</span>';
                       }
+                      // 竣工年月
                       $completion = get_field('completion_year');
                       if ($completion) {
                         echo '<span class="c-works-card__tag c-works-card__tag--white">' . esc_html($completion) . '年</span>';
