@@ -212,12 +212,32 @@
 
 .p-works-post__text {
   margin-top: rem(37);
-  font-size: rem(16);
-  line-height: calc(28 / 16);
   @include mq(md) {
     margin-top: rem(25);
+  }
+}
+
+.p-works-post__text p {
+  font-size: rem(16);
+  line-height: calc(28 / 16);
+  margin-top: rem(16);
+  @include mq(md) {
     font-size: rem(14);
     line-height: calc(24 / 14);
+  }
+}
+
+.p-works-post__text h2 {
+  margin-top: rem(28);
+  @include mq(md) {
+    margin-top: rem(24);
+  }
+}
+
+.p-works-post__text h3 {
+  margin-top: rem(24);
+  @include mq(md) {
+    margin-top: rem(20);
   }
 }
 

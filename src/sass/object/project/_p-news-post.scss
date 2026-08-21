@@ -95,6 +95,13 @@
   }
 }
 
+.p-news-post__body h3 {
+  margin-top: rem(28);
+  @include mq(md) {
+    margin-top: rem(24);
+  }
+}
+
 .p-news-post__body h2::before {
   content: "";
   position: absolute;
