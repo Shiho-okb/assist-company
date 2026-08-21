@@ -66,7 +66,7 @@
                     <?php if (has_post_thumbnail()) : ?>
                       <?php the_post_thumbnail('large', array('loading' => 'lazy', 'decoding' => 'async')); ?>
                     <?php else : ?>
-                      <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/works-post/works-post_01.webp'); ?>" alt="<?php the_title_attribute(); ?>" width="317" height="195" loading="lazy" decoding="async">
+                      <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/coming-soon.png'); ?>" alt="<?php the_title_attribute(); ?>" width="317" height="195" loading="lazy" decoding="async">
                     <?php endif; ?>
                   </div>
                   <div class="c-works-card__body">

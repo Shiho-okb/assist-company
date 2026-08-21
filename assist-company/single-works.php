@@ -215,7 +215,7 @@
                         <?php the_post_thumbnail('full', array('loading' => 'lazy', 'decoding' => 'async', 'style' => 'width: 100%; height: auto;')); ?>
                       <?php else : ?>
                         <!-- アイキャッチ画像がない場合の代替画像 -->
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/works-post/works-post_01.webp'); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" loading="lazy" decoding="async">
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/coming-soon.png'); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" loading="lazy" decoding="async">
                       <?php endif; ?>
                     </div>
                     <div class="c-works-card__tags">

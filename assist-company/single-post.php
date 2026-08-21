@@ -177,7 +177,7 @@
                         <?php the_post_thumbnail('large', array('loading' => 'lazy', 'decoding' => 'async', 'alt' => get_the_title())); ?>
                       <?php else : ?>
                         <!-- アイキャッチ画像がない場合の代替画像 -->
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/news-column/news-column_01.webp'); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="wp-post-image" loading="lazy" decoding="async">
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/coming-soon.png'); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="wp-post-image" loading="lazy" decoding="async">
                       <?php endif; ?>
                     </div>
                     <div class="c-column-card__body">
