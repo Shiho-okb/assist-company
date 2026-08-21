@@ -28,10 +28,10 @@
   <section class="p-company p-company--low">
     <div class="p-company__inner l-inner">
       <div class="p-company__wrapper">
-        <h2 class="p-company__title c-title c-title--white">
+        <p class="p-company__title c-title c-title--white">
           <span class="c-title__en">Company</span>
           <span class="c-title__ja">我々について</span>
-        </h2>
+        </p>
         <div class="p-company__content">
           <p class="p-company__heading">
             世界を「アッ！」と驚かせる<br>
