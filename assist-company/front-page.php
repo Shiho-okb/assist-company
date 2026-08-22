@@ -147,9 +147,11 @@
               <li class="p-top-works__card c-works-card">
                 <a href="<?php the_permalink(); ?>" class="c-works-card__item">
                   <div class="c-works-card__image">
-                    <?php if (has_post_thumbnail()) {
-                      the_post_thumbnail('medium');
-                    } ?>
+                    <?php if (has_post_thumbnail()) : ?>
+                      <?php the_post_thumbnail('medium'); ?>
+                    <?php else : ?>
+                      <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/coming-soon.png')); ?>" alt="<?php the_title_attribute(); ?>" width="317" height="195" loading="lazy" decoding="async">
+                    <?php endif; ?>
                   </div>
                   <div class="c-works-card__body">
                     <h3 class="c-works-card__title"><?php the_title(); ?></h3>
