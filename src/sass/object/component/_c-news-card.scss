@@ -13,18 +13,25 @@
 
 .c-news-card__category {
   flex-shrink: 0;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: rem(80);
+  width: auto;
+  min-width: rem(80);
+  max-width: 100%;
   height: rem(25);
+  padding: 0 rem(8);
   font-size: rem(14);
   font-weight: 700;
   line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: $white;
   @include mq(md) {
-    width: rem(60);
+    min-width: rem(60);
     height: rem(20);
+    padding: 0 rem(6);
     font-size: rem(10);
   }
 }
