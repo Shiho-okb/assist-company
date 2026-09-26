@@ -300,13 +300,14 @@
 }
 
 .p-works-post__cards {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: rem(25);
   margin: rem(30) auto 0;
   @include mq(md) {
     max-width: rem(500);
     gap: rem(35);
-    flex-direction: column;
+    grid-template-columns: 1fr;
     margin: rem(20) auto 0;
   }
 }
@@ -334,7 +335,6 @@
 }
 
 .p-works-post__card {
-  flex: 1 1 0; // すべてのカードを全く同じ幅で均等に割り分ける
-  min-width: 0;
   width: 100%;
+  min-width: 0;
 }
