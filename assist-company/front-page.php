@@ -113,12 +113,14 @@
             ?>
           </ol>
         </div>
-        <div class="p-top-news__btn">
-          <a href="<?php echo esc_url(get_post_type_archive_link('post')); ?>" class="c-btn">
-            MORE
-            <span></span>
-          </a>
-        </div>
+        <?php if ($news_query->have_posts()): ?>
+          <div class="p-top-news__btn">
+            <a href="<?php echo esc_url(get_post_type_archive_link('post')); ?>" class="c-btn">
+              MORE
+              <span></span>
+            </a>
+          </div>
+        <?php endif; ?>
       </div>
     </div>
   </section>
@@ -191,12 +193,14 @@
           wp_reset_postdata();
           ?>
         </ol>
-        <div class="p-top-works__btn">
-          <a href="<?php echo esc_url(get_post_type_archive_link('works')); ?>" class="c-btn">
-            MORE
-            <span></span>
-          </a>
-        </div>
+        <?php if ($works_query->have_posts()): ?>
+          <div class="p-top-works__btn">
+            <a href="<?php echo esc_url(get_post_type_archive_link('works')); ?>" class="c-btn">
+              MORE
+              <span></span>
+            </a>
+          </div>
+        <?php endif; ?>
       </div>
     </div>
   </section>
