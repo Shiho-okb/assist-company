@@ -156,7 +156,9 @@
                     <?php endif; ?>
                   </div>
                   <div class="c-works-card__body">
-                    <h3 class="c-works-card__title"><?php the_title(); ?></h3>
+                    <h3 class="c-works-card__title">
+                      <span class="c-works-card__title-inner"><?php the_title(); ?></span>
+                    </h3>
                     <p class="c-works-card__text">
                       <?php
                       $excerpt = get_the_excerpt();
