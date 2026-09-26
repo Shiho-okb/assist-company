@@ -25,7 +25,7 @@
             削除された可能性があります。
           </p>
           <div class="p-404__btn">
-            <a href="./index.html" class="c-btn">
+            <a href="<?php echo esc_url(home_url('/')); ?>" class="c-btn">
               TOPへ戻る
               <span></span>
             </a>
