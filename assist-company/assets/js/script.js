@@ -1,4 +1,4 @@
-jQuery(function($) {
+jQuery(function ($) {
   /*-------------------------------------------
   ページトップボタン
   -------------------------------------------*/
@@ -82,61 +82,71 @@ jQuery(function($) {
   });
 
   /*-------------------------------------------
-  スワイパー（トップページ メインビジュアル用）
+  スワイパー
   -------------------------------------------*/
-  const swiper = new Swiper(".p-mainvisual__swiper", {
-    loop: true, // ループ
-    speed: 1500, // 少しゆっくり(デフォルトは300)
-    slidesPerView: "auto", // 一度に表示する枚数
-    spaceBetween: 20, // スライド間の距離
-    centeredSlides: true, // アクティブなスライドを中央にする
-    autoplay: {
-      delay: 1000,
-    },
-
-    // レスポンシブ設定
-    breakpoints: {
-      768: {
-        spaceBetween: 48,
+  if ($(".p-mainvisual__swiper").length > 0) {
+    const swiper = new Swiper(".p-mainvisual__swiper", {
+      loop: true, // ループ
+      speed: 1500, // 少しゆっくり(デフォルトは300)
+      slidesPerView: "auto", // 一度に表示する枚数
+      spaceBetween: 20, // スライド間の距離
+      centeredSlides: true, // アクティブなスライドを中央にする
+      autoplay: {
+        delay: 1000,
       },
-    },
-  });
+      observer: true,
+      observeParents: true,
+
+      // レスポンシブ設定
+      breakpoints: {
+        768: {
+          spaceBetween: 48,
+        },
+      },
+    });
+  }
 
   /*-------------------------------------------
   施工事例詳細 スワイパー
   -------------------------------------------*/
-  // サムネイル
-  const worksThumbSwiper = new Swiper(".p-works-post__thumbs", {
-    slidesPerView: 4,
-    spaceBetween: 10,
-    watchSlidesProgress: true,
+  if ($(".p-works-post__slider").length > 0) {
+    // サムネイル
+    const worksThumbSwiper = new Swiper(".p-works-post__thumbs", {
+      slidesPerView: 4,
+      spaceBetween: 10,
+      watchSlidesProgress: true,
+      observer: true,
+      observeParents: true,
 
-    // レスポンシブ設定
-    breakpoints: {
-      768: {
-        spaceBetween: 20,
+      // レスポンシブ設定
+      breakpoints: {
+        768: {
+          spaceBetween: 20,
+        },
       },
-    },
-  });
+    });
 
-  // メイン
-  const worksMainSwiper = new Swiper(".p-works-post__slider", {
-    loop: true,
-    effect: "fade", // ふわっと切替
+    // メイン
+    const worksMainSwiper = new Swiper(".p-works-post__slider", {
+      loop: true,
+      effect: "fade", // ふわっと切替
 
-    fadeEffect: {
-      crossFade: true,
-    },
+      fadeEffect: {
+        crossFade: true,
+      },
 
-    speed: 800,
+      speed: 800,
+      observer: true,
+      observeParents: true,
 
-    navigation: {
-      nextEl: ".p-works-post__arrow--next",
-      prevEl: ".p-works-post__arrow--prev",
-    },
+      navigation: {
+        nextEl: ".p-works-post__arrow--next",
+        prevEl: ".p-works-post__arrow--prev",
+      },
 
-    thumbs: {
-      swiper: worksThumbSwiper,
-    },
-  });
+      thumbs: {
+        swiper: worksThumbSwiper,
+      },
+    });
+  }
 });
