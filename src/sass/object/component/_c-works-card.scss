@@ -30,12 +30,22 @@
 .c-works-card__title {
   padding-bottom: rem(16.5);
   border-bottom: rem(1) solid $black;
+  @include mq(md) {
+    padding-bottom: rem(13);
+  }
+}
+
+.c-works-card__title-inner {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: rem(22);
   font-weight: 700;
   line-height: calc(26 / 22);
   letter-spacing: .03em;
   @include mq(md) {
-    padding-bottom: rem(13);
     font-size: rem(20);
   }
 }

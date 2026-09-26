@@ -70,7 +70,9 @@
                     <?php endif; ?>
                   </div>
                   <div class="c-works-card__body">
-                    <h2 class="c-works-card__title"><?php the_title(); ?></h2>
+                    <h2 class="c-works-card__title">
+                      <span class="c-works-card__title-inner"><?php the_title(); ?></span>
+                    </h2>
                     <p class="c-works-card__text"><?php echo esc_html(wp_trim_words(get_the_excerpt(), 30, '...')); ?></p>
                     <div class="c-works-card__tags">
                       <!-- カテゴリー -->
